@@ -1,213 +1,486 @@
-'use client'
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, ArrowRight } from 'lucide-react';
+"use client"
+
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "motion/react"
+import { Menu, X, ArrowRight, ChevronDown, Shield, Phone, MapPin, Clock } from "lucide-react"
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      setScrolled(window.scrollY > 10)
+    }
 
-  const navItems = [
-    { name: 'Loans', href: '#loans' },
-    { name: 'How It Works', href: '#process' },
-    { name: 'Rates', href: '#rates' },
-    { name: 'Support', href: '#support' }
-  ];
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const personalBankingItems = [
+    {
+      title: "Current Accounts",
+      description: "Everyday banking made simple with no monthly fees",
+      href: "/personal/current-accounts",
+    },
+    {
+      title: "Savings & ISAs",
+      description: "Grow your money with competitive rates up to 4.75% AER",
+      href: "/personal/savings",
+    },
+    {
+      title: "Credit Cards",
+      description: "Flexible spending with 0% purchase rates",
+      href: "/personal/credit-cards",
+    },
+    {
+      title: "Personal Loans",
+      description: "Achieve your goals with rates from 3.9% APR",
+      href: "/personal/loans",
+    },
+    {
+      title: "Overdrafts",
+      description: "Financial flexibility when you need it most",
+      href: "/personal/overdrafts",
+    },
+  ]
+
+  const businessBankingItems = [
+    {
+      title: "Business Current Accounts",
+      description: "Banking that works for your business growth",
+      href: "/business/current-accounts",
+    },
+    {
+      title: "Business Loans",
+      description: "Fuel your business growth with competitive rates",
+      href: "/business/loans",
+    },
+    {
+      title: "Commercial Finance",
+      description: "Property & asset finance solutions",
+      href: "/business/finance",
+    },
+    {
+      title: "Business Credit Cards",
+      description: "Expense management made easy",
+      href: "/business/credit-cards",
+    },
+  ]
+
+  const supportItems = [
+    {
+      title: "Contact Us",
+      description: "Get in touch with our UK-based support team",
+      href: "/support/contact",
+      icon: Phone,
+    },
+    {
+      title: "Branch Locator",
+      description: "Find your nearest Prime Bank branch",
+      href: "/support/branches",
+      icon: MapPin,
+    },
+    {
+      title: "24/7 Help",
+      description: "Round-the-clock assistance when you need it",
+      href: "/support/help",
+      icon: Clock,
+    },
+  ]
+
+  const handleDropdownToggle = (dropdown: string) => {
+    setActiveDropdown(activeDropdown === dropdown ? null : dropdown)
+  }
 
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
-        scrolled 
-          ? 'py-3' 
-          : 'py-6'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <motion.div 
-          layout
-          className={`flex items-center justify-between transition-all duration-700 ease-out ${
-            scrolled
-              ? 'bg-black/70 backdrop-blur-xl px-6 py-3 rounded-2xl shadow-2xl'
-              : 'bg-black/50 backdrop-blur-xl px-6 py-4 rounded-2xl shadow-xl'
-          }`}
-        >
-          
-          {/* Logo */}
-          <motion.div 
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 500, damping: 20 }}
-            className="flex items-center gap-3 cursor-pointer"
-          >
-            <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <span className="text-xl sm:text-2xl font-black text-white tracking-tight">Prime</span>
-              <span className="text-lg sm:text-xl font-light text-emerald-400 ml-1">Bank</span>
-            </motion.div>
-          </motion.div>
-
-          {/* Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="relative px-5 py-2.5 text-slate-300 hover:text-white font-medium transition-all duration-300 rounded-xl group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="relative z-10">{item.name}</span>
-                <motion.div
-                  className="absolute inset-0 bg-white/10 rounded-xl"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileHover={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.2 }}
-                />
-              </motion.a>
-            ))}
-          </nav>
-
-          {/* CTA Section */}
-          <div className="hidden lg:flex items-center gap-3">
-            <motion.button
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="px-5 py-2.5 text-slate-300 hover:text-white font-semibold transition-all duration-300 rounded-xl hover:bg-white/10"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Sign In
-            </motion.button>
-            
-            <motion.button
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              whileHover={{ 
-                scale: 1.05,
-                y: -2
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative overflow-hidden bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all duration-300 shadow-lg"
-            >
-              <span className="relative flex items-center gap-2">
-                Get Started
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+    <>
+      {/* Top Bar */}
+      <div className="bg-primary text-primary-foreground py-2 text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-6">
+              <span className="flex items-center gap-2">
+                <Shield className="w-4 h-4" />
+                FSCS Protected up to £85,000
               </span>
-            </motion.button>
+              <span className="hidden md:block">FCA Regulated • Established 1987</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <span className="hidden sm:block">24/7 Support: 0800 123 4567</span>
+              <button className="text-primary-foreground hover:text-primary-foreground/80 transition-colors">
+                Find Branch
+              </button>
+            </div>
           </div>
+        </div>
+      </div>
 
-          {/* Mobile Menu Button */}
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden relative p-2.5 rounded-xl bg-white/10 text-slate-300 hover:bg-white/20 hover:text-white transition-all duration-300"
-          >
-            <AnimatePresence mode="wait">
-              {isOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
+      {/* Main Navigation */}
+      <header
+        className={`sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300 ${
+          scrolled ? "shadow-sm" : ""
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            {/* Logo */}
+            <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3 cursor-pointer">
+              <div className="flex items-baseline">
+                <span className="text-2xl font-black text-foreground tracking-tight">Prime</span>
+                <span className="text-xl font-light text-primary ml-1">Bank</span>
+              </div>
+            </motion.div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-1">
+              {/* Personal Banking Dropdown */}
+              <div className="relative">
+                <button
+                  onMouseEnter={() => setActiveDropdown("personal")}
+                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md hover:bg-accent"
                 >
-                  <X className="w-5 h-5" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
+                  Personal Banking
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+
+                <AnimatePresence>
+                  {activeDropdown === "personal" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      onMouseLeave={() => setActiveDropdown(null)}
+                      className="absolute top-full left-0 mt-1 w-80 bg-popover border rounded-lg shadow-lg p-2"
+                    >
+                      {personalBankingItems.map((item) => (
+                        <a
+                          key={item.title}
+                          href={item.href}
+                          className="block p-3 rounded-md hover:bg-accent transition-colors group"
+                        >
+                          <h4 className="font-medium text-popover-foreground group-hover:text-primary">{item.title}</h4>
+                          <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                        </a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Business Banking Dropdown */}
+              <div className="relative">
+                <button
+                  onMouseEnter={() => setActiveDropdown("business")}
+                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md hover:bg-accent"
                 >
-                  <Menu className="w-5 h-5" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.button>
-        </motion.div>
+                  Business Banking
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+
+                <AnimatePresence>
+                  {activeDropdown === "business" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      onMouseLeave={() => setActiveDropdown(null)}
+                      className="absolute top-full left-0 mt-1 w-80 bg-popover border rounded-lg shadow-lg p-2"
+                    >
+                      {businessBankingItems.map((item) => (
+                        <a
+                          key={item.title}
+                          href={item.href}
+                          className="block p-3 rounded-md hover:bg-accent transition-colors group"
+                        >
+                          <h4 className="font-medium text-popover-foreground group-hover:text-primary">{item.title}</h4>
+                          <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                        </a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Regular Navigation Items */}
+              <a
+                href="/mortgages"
+                className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md hover:bg-accent"
+              >
+                Mortgages
+              </a>
+              <a
+                href="/investments"
+                className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md hover:bg-accent"
+              >
+                Investments
+              </a>
+              <a
+                href="/insurance"
+                className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md hover:bg-accent"
+              >
+                Insurance
+              </a>
+
+              {/* Support Dropdown */}
+              <div className="relative">
+                <button
+                  onMouseEnter={() => setActiveDropdown("support")}
+                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md hover:bg-accent"
+                >
+                  Support
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+
+                <AnimatePresence>
+                  {activeDropdown === "support" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      onMouseLeave={() => setActiveDropdown(null)}
+                      className="absolute top-full right-0 mt-1 w-72 bg-popover border rounded-lg shadow-lg p-2"
+                    >
+                      {supportItems.map((item) => {
+                        const IconComponent = item.icon
+                        return (
+                          <a
+                            key={item.title}
+                            href={item.href}
+                            className="flex items-start gap-3 p-3 rounded-md hover:bg-accent transition-colors group"
+                          >
+                            <IconComponent className="w-5 h-5 text-primary mt-0.5" />
+                            <div>
+                              <h4 className="font-medium text-popover-foreground group-hover:text-primary">
+                                {item.title}
+                              </h4>
+                              <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                            </div>
+                          </a>
+                        )
+                      })}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </nav>
+
+            {/* CTA Buttons */}
+            <div className="hidden lg:flex items-center gap-3">
+              <button className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
+                Sign In
+              </button>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="bg-primary text-primary-foreground px-6 py-2 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors flex items-center gap-2"
+              >
+                Open Account
+                <ArrowRight className="w-4 h-4" />
+              </motion.button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="lg:hidden p-2 rounded-md hover:bg-accent transition-colors"
+            >
+              <AnimatePresence mode="wait">
+                {isOpen ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <X className="w-5 h-5" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Menu className="w-5 h-5" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </button>
+          </div>
+        </div>
 
         {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -30, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -30, scale: 0.9 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden mt-4 bg-black/80 backdrop-blur-2xl rounded-2xl shadow-2xl overflow-hidden"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="lg:hidden border-t bg-background"
             >
-              <div className="p-6">
-                {/* Mobile Navigation */}
-                <nav className="space-y-2 mb-6">
-                  {navItems.map((item, index) => (
-                    <motion.a
-                      key={item.name}
-                      href={item.href}
-                      initial={{ opacity: 0, x: -30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: 0.1 * index }}
-                      onClick={() => setIsOpen(false)}
-                      className="block px-6 py-3 text-slate-300 hover:text-white hover:bg-white/10 rounded-xl font-semibold transition-all duration-300"
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      {item.name}
-                    </motion.a>
-                  ))}
-                </nav>
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-4">
+                {/* Mobile Personal Banking */}
+                <div>
+                  <button
+                    onClick={() => handleDropdownToggle("mobile-personal")}
+                    className="flex items-center justify-between w-full py-2 text-left font-medium text-foreground"
+                  >
+                    Personal Banking
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${
+                        activeDropdown === "mobile-personal" ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {activeDropdown === "mobile-personal" && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="pl-4 space-y-2 mt-2"
+                      >
+                        {personalBankingItems.map((item) => (
+                          <a
+                            key={item.title}
+                            href={item.href}
+                            className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {item.title}
+                          </a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Mobile Business Banking */}
+                <div>
+                  <button
+                    onClick={() => handleDropdownToggle("mobile-business")}
+                    className="flex items-center justify-between w-full py-2 text-left font-medium text-foreground"
+                  >
+                    Business Banking
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${
+                        activeDropdown === "mobile-business" ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {activeDropdown === "mobile-business" && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="pl-4 space-y-2 mt-2"
+                      >
+                        {businessBankingItems.map((item) => (
+                          <a
+                            key={item.title}
+                            href={item.href}
+                            className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {item.title}
+                          </a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Mobile Regular Items */}
+                <a
+                  href="/mortgages"
+                  className="block py-2 font-medium text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Mortgages
+                </a>
+                <a
+                  href="/investments"
+                  className="block py-2 font-medium text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Investments
+                </a>
+                <a
+                  href="/insurance"
+                  className="block py-2 font-medium text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Insurance
+                </a>
+
+                {/* Mobile Support */}
+                <div>
+                  <button
+                    onClick={() => handleDropdownToggle("mobile-support")}
+                    className="flex items-center justify-between w-full py-2 text-left font-medium text-foreground"
+                  >
+                    Support
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${
+                        activeDropdown === "mobile-support" ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {activeDropdown === "mobile-support" && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="pl-4 space-y-2 mt-2"
+                      >
+                        {supportItems.map((item) => (
+                          <a
+                            key={item.title}
+                            href={item.href}
+                            className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {item.title}
+                          </a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 {/* Mobile CTA */}
-                <div className="space-y-3 pt-4">
-                  <motion.button
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.5 }}
-                    className="w-full px-6 py-3 text-slate-300 hover:text-white hover:bg-white/10 rounded-xl font-semibold transition-all duration-300"
-                    whileTap={{ scale: 0.98 }}
+                <div className="pt-4 border-t space-y-3">
+                  <button
+                    className="w-full py-2 text-left font-medium text-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsOpen(false)}
                   >
                     Sign In
-                  </motion.button>
-                  
-                  <motion.button
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.6 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-colors duration-300"
+                  </button>
+                  <button
+                    className="w-full bg-primary text-primary-foreground py-3 rounded-md font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+                    onClick={() => setIsOpen(false)}
                   >
-                    <span className="flex items-center justify-center gap-2">
-                      Get Started
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </motion.button>
+                    Open Account
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
-    </motion.header>
-  );
-};
+      </header>
+    </>
+  )
+}
 
-export default Navbar;
+export default Navbar
