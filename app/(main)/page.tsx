@@ -1,5 +1,7 @@
 import PrimeBankHero from "@/components/shared/hero"
 import ServicesSection from "@/components/shared/service"
+import WhyPrimeBank from "@/components/shared/whyChooseUs"
+import CTASection from "@/components/shared/cta"
 
 
 function page() {
@@ -11,6 +13,9 @@ function page() {
       <PrimeBankHero />
       {/* Services Section */}
       <ServicesSection />
+      <WhyPrimeBank/>
+      <CTASection/>
+
     </main>
   )
 }

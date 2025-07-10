@@ -1,6 +1,6 @@
 "use client"
 import { motion } from "motion/react"
-import { CreditCard, PiggyBank, Home, TrendingUp, Shield, Smartphone, Users, Building2 } from "lucide-react"
+import { CreditCard, PiggyBank, Home, TrendingUp,  Smartphone, Users, Building2 } from "lucide-react"
 import GrainOverlay from "@/components/shared/grainOverlay"
 
 const ServicesSection = () => {
@@ -86,10 +86,6 @@ const ServicesSection = () => {
     <section className="py-20 bg-slate-900 relative overflow-hidden grain-overlay">
       {/* Grain Overlay */}
       <GrainOverlay />
-
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-800/50 to-slate-900" />
-
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -217,24 +213,7 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <div className="flex flex-wrap justify-center items-center gap-8 text-slate-400">
-            <div className="flex items-center gap-2">
-              <Shield className="w-5 h-5 text-blue-400" />
-              <span className="text-sm font-medium">FSCS Protected</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
-                <span className="text-xs font-bold text-white">✓</span>
-              </div>
-              <span className="text-sm font-medium">FCA Regulated</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-5 h-5 bg-blue-400 rounded-full flex items-center justify-center">
-                <span className="text-xs font-bold text-white">★</span>
-              </div>
-              <span className="text-sm font-medium">4.8/5 Trustpilot Rating</span>
-            </div>
-          </div>
+         
         </motion.div>
       </div>
     </section>

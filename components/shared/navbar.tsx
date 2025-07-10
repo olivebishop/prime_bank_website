@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
-import { Menu, X, ArrowRight, ChevronDown, Shield, Phone, MapPin, Clock } from "lucide-react"
+import { Menu, X, ArrowRight, ChevronDown, Shield, Phone, MapPin } from "lucide-react"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,28 +22,24 @@ const Navbar = () => {
     {
       title: "Current Accounts",
       description: "Everyday banking made simple with no monthly fees",
-      href: "/personal/current-accounts",
+      href: "/personal-banking/current-accounts",
     },
     {
-      title: "Savings & ISAs",
+      title: "Savings",
       description: "Grow your money with competitive rates up to 4.75% AER",
-      href: "/personal/savings",
+      href: "/personal-banking/saving-accounts",
     },
     {
       title: "Credit Cards",
       description: "Flexible spending with 0% purchase rates",
-      href: "/personal/credit-cards",
+      href: "/personal-banking/credit-cards",
     },
     {
       title: "Personal Loans",
       description: "Achieve your goals with rates from 3.9% APR",
-      href: "/personal/loans",
+      href: "/personal-banking/loans",
     },
-    {
-      title: "Overdrafts",
-      description: "Financial flexibility when you need it most",
-      href: "/personal/overdrafts",
-    },
+    
   ]
 
   const businessBankingItems = [
@@ -62,11 +58,7 @@ const Navbar = () => {
       description: "Property & asset finance solutions",
       href: "/business/finance",
     },
-    {
-      title: "Business Credit Cards",
-      description: "Expense management made easy",
-      href: "/business/credit-cards",
-    },
+    
   ]
 
   const supportItems = [
@@ -82,12 +74,7 @@ const Navbar = () => {
       href: "/support/branches",
       icon: MapPin,
     },
-    {
-      title: "24/7 Help",
-      description: "Round-the-clock assistance when you need it",
-      href: "/support/help",
-      icon: Clock,
-    },
+    
   ]
 
   const handleDropdownToggle = (dropdown: string) => {
