@@ -1,42 +1,41 @@
 'use client'
 import React, { useState } from 'react';
-import { CreditCard, Check, ArrowRight } from 'lucide-react';
+import { Home, Check, ArrowRight, Shield, Target, Clock } from 'lucide-react';
 import GrainOverlay from '@/components/shared/grainOverlay';
-import { currentAccountsData, whyChooseUsData } from '@/data/personalBanking/currentAccount';
+import { mortgageProducts } from '@/data/mortgages';
 
-const CurrentAccountsPage = () => {
-  const [selectedAccount, setSelectedAccount] = useState<string | null>(null);
+const MortgagesPage = () => {
+  const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
 
   return (
     <div className="min-h-screen bg-[#1c1c1c] relative overflow-hidden">
-      <GrainOverlay />
-      
+      <GrainOverlay/>
       <div className="relative z-10">
         {/* Header */}
         <div className="px-6 lg:px-8 py-20">
           <div className="max-w-6xl mx-auto text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Current <span className="text-blue-400">Accounts</span>
+              Your Perfect <span className="text-blue-400">Mortgage</span> Awaits
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Fee-free everyday banking with smart features to help you manage your money better.
+              Whether you`&apos;re buying your first home or expanding your portfolio, we have competitive mortgage solutions tailored to your needs.
             </p>
           </div>
 
           {/* Products Grid */}
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 mb-16">
-              {currentAccountsData.map((account) => {
-                const IconComponent = account.icon;
+              {mortgageProducts.map((product) => {
+                const IconComponent = product.icon;
                 return (
                   <div
-                    key={account.id}
+                    key={product.id}
                     className={`bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
-                      selectedAccount === account.id 
+                      selectedProduct === product.id 
                         ? 'border-green-500/50 shadow-lg shadow-green-500/10' 
                         : 'border-gray-800/50 hover:border-gray-700/50'
                     }`}
-                    onClick={() => setSelectedAccount(selectedAccount === account.id ? null : account.id)}
+                    onClick={() => setSelectedProduct(selectedProduct === product.id ? null : product.id)}
                   >
                     {/* Icon */}
                     <div className="mb-6">
@@ -45,29 +44,59 @@ const CurrentAccountsPage = () => {
                       </div>
                       
                       <h3 className="text-2xl font-bold text-white mb-2">
-                        {account.name}
+                        {product.name}
                       </h3>
                       
                       <p className="text-gray-400 leading-relaxed">
-                        {account.description}
+                        {product.description}
                       </p>
                     </div>
 
                     {/* Key Details */}
                     <div className="grid grid-cols-3 gap-4 mb-6">
                       <div>
-                        <div className="text-sm text-gray-500 mb-1">Monthly Fee</div>
-                        <div className="text-lg font-bold text-blue-400">{account.monthlyFee}</div>
+                        <div className="text-sm text-gray-500 mb-1">Interest Rate</div>
+                        <div className="text-lg font-bold text-blue-400">{product.rate}</div>
                       </div>
                       <div>
-                        <div className="text-sm text-gray-500 mb-1">Overdraft</div>
-                        <div className="text-lg font-bold text-white">{account.overdraft}</div>
+                        <div className="text-sm text-gray-500 mb-1">Min Deposit</div>
+                        <div className="text-lg font-bold text-white">{product.minDeposit}</div>
                       </div>
                       <div>
-                        <div className="text-sm text-gray-500 mb-1">Rating</div>
-                        <div className="text-lg font-bold text-white">{account.rating}★</div>
+                        <div className="text-sm text-gray-500 mb-1">Max Loan</div>
+                        <div className="text-lg font-bold text-white">{product.maxLoan}</div>
                       </div>
                     </div>
+
+                    {/* Expandable Content */}
+                    {selectedProduct === product.id && (
+                      <div className="mt-6 pt-6 border-t border-gray-800">
+                        <div className="grid md:grid-cols-2 gap-6 mb-6">
+                          <div>
+                            <h4 className="text-lg font-semibold text-white mb-3">Key Features</h4>
+                            <ul className="space-y-2">
+                              {product.features.map((feature, index) => (
+                                <li key={index} className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                                  <span className="text-sm text-gray-300">{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="text-lg font-semibold text-white mb-3">Benefits</h4>
+                            <ul className="space-y-2">
+                              {product.benefits.map((benefit, index) => (
+                                <li key={index} className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                                  <span className="text-sm text-gray-300">{benefit}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    )}
 
                     {/* CTA Button - Grain Blended */}
                     <button className="w-full relative px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 group overflow-hidden">
@@ -84,7 +113,7 @@ const CurrentAccountsPage = () => {
                       ></div>
                       
                       {/* Content */}
-                      <span className="relative text-white z-10">Open Account</span>
+                      <span className="relative text-white z-10">Get Quote</span>
                       <ArrowRight className="relative w-4 h-4 text-white z-10 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
@@ -92,47 +121,42 @@ const CurrentAccountsPage = () => {
               })}
             </div>
 
-            {/* Expanded Features */}
-            {selectedAccount && (
-              <div className="bg-gray-900/30 backdrop-blur-sm rounded-2xl p-8 border border-gray-800/50 mb-16">
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  All Features - {currentAccountsData.find(acc => acc.id === selectedAccount)?.name}
-                </h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {currentAccountsData.find(acc => acc.id === selectedAccount)?.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-3 text-gray-300">
-                      <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
             {/* Simple Features */}
-            <div className="grid md:grid-cols-4 gap-8 mb-16">
-              {whyChooseUsData.map((item, idx) => {
-                const IconComponent = item.icon;
-                return (
-                  <div key={idx} className="text-center">
-                    <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <IconComponent className="w-6 h-6 text-blue-400" />
-                    </div>
-                    <h4 className="text-lg font-semibold text-white mb-2">{item.title}</h4>
-                    <p className="text-gray-400">{item.description}</p>
-                  </div>
-                );
-              })}
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-6 h-6 text-blue-400" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">FCA Regulated</h4>
+                <p className="text-gray-400">Fully regulated and authorized by the Financial Conduct Authority</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-6 h-6 text-blue-400" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">Quick Decisions</h4>
+                <p className="text-gray-400">Get a mortgage decision in principle within 24 hours</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Target className="w-6 h-6 text-blue-400" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">Expert Advice</h4>
+                <p className="text-gray-400">Free mortgage advice from qualified specialists</p>
+              </div>
             </div>
+
+
 
             {/* Final CTA */}
             <div className="text-center bg-gradient-to-r from-blue-500/10 to-blue-500/5 rounded-2xl p-12 border border-blue-500/20">
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Ready to Switch to Better Banking?
+                Ready to Find Your Perfect Home?
               </h3>
               <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-                Join over 3 million customers who trust us with their everyday banking. 
-                Switch in just a few minutes with our account switching service.
+                Join thousands of satisfied customers who`&apos;ve found their dream home with our mortgage solutions. Get started today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 {/* Primary CTA Button - Grain Blended */}
@@ -150,8 +174,8 @@ const CurrentAccountsPage = () => {
                   ></div>
                   
                   {/* Content */}
-                  <CreditCard className="relative w-6 h-6 text-black z-10" />
-                  <span className="relative text-black z-10">Open Account Now</span>
+                  <Home className="relative w-6 h-6 text-black z-10" />
+                  <span className="relative text-black z-10">Apply Now</span>
                 </button>
 
                 {/* Secondary CTA Button - Grain Blended */}
@@ -169,7 +193,7 @@ const CurrentAccountsPage = () => {
                   ></div>
                   
                   {/* Content */}
-                  <span className="relative text-white z-10">Compare Accounts</span>
+                  <span className="relative text-white z-10">Speak to Expert</span>
                 </button>
               </div>
             </div>
@@ -180,4 +204,4 @@ const CurrentAccountsPage = () => {
   );
 };
 
-export default CurrentAccountsPage;
+export default MortgagesPage;

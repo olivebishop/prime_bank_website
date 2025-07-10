@@ -5,7 +5,6 @@ export default function PageHero({
   defaultText,
   specialText,
   extraText,
-  description,
   imageSrc,
   alt,
 }: IPageProps) {
