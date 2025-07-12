@@ -23,7 +23,7 @@ export default function PrimeBankFooter() {
               </div>
               <div className="flex items-baseline">
                 <span className="text-2xl font-black text-white tracking-tight">Prime</span>
-                <span className="text-xl font-light text-blue-400 ml-1">Bank</span>
+                <span className="text-xl font-black  ml-1">Bank</span>
               </div>
             </div>
 
