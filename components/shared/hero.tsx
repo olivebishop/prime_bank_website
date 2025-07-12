@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react"
-import { ArrowRight, Shield, Zap, CreditCard, Smartphone, PiggyBank } from "lucide-react"
+import { ArrowRight, Shield, Zap,  Smartphone } from "lucide-react"
 
 const GrainOverlay = () => (
   <div 
