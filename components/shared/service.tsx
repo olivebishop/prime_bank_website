@@ -67,7 +67,7 @@ const ServicesSection = () => {
           </h3>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {personalServices.map((service, index) => {
+            {personalServices.map((service) => {
               const IconComponent = service.icon;
 
               return (

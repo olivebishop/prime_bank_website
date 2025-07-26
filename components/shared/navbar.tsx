@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Menu, X, ArrowRight, ChevronDown, Shield, User, Building2 } from "lucide-react";
 
 const GrainOverlay = () => (
@@ -112,8 +113,8 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
-            {/* Logo */}
-            <a 
+            {/* Logo - Fixed: Changed from <a> to <Link> */}
+            <Link 
               href="/"
               className="flex items-center gap-3 cursor-pointer flex-shrink-0 hover:scale-105 transition-transform duration-200"
             >
@@ -121,7 +122,7 @@ const Navbar = () => {
                 <span className="text-xl sm:text-2xl font-black text-black tracking-tight whitespace-nowrap">Prime</span>
                 <span className="text-lg sm:text-xl font-black text-black ml-1 whitespace-nowrap">Bank</span>
               </div>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center justify-center flex-1 px-8">
@@ -167,48 +168,48 @@ const Navbar = () => {
                 </div>
 
                 {/* Regular Navigation Items */}
-                <a
+                <Link
                   href="/mortgages"
                   className="px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md"
                 >
                   Mortgages
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/investments"
                   className="px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md"
                 >
                   Investments
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/insurance"
                   className="px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md"
                 >
                   Insurance
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/about-us"
                   className="px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md"
                 >
                   About Us
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/contact-us"
                   className="px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md"
                 >
                   Contact Us
-                </a>
+                </Link>
               </div>
             </nav>
 
             {/* Right Side Actions */}
             <div className="flex items-center gap-3 flex-shrink-0">
               {/* Login Link */}
-              <a
-                href="#"
+              <Link
+                href="/login"
                 className="hidden lg:block px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md"
               >
                 Login
-              </a>
+              </Link>
               
               {/* Open Account Button */}
               <button className="hidden lg:flex bg-black text-white px-6 py-2.5 rounded-md text-sm xl:text-base font-medium hover:bg-gray-800 hover:scale-105 transition-all duration-200 items-center gap-2 whitespace-nowrap">
@@ -268,7 +269,7 @@ const Navbar = () => {
               {/* Menu Items Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {(activeDropdown === "personal" ? personalBankingItems : businessBankingItems).map((item) => (
-                  <a
+                  <Link
                     key={item.title}
                     href={item.href}
                     className={`group p-6 rounded-lg hover:bg-gray-50 transition-all duration-200 border border-transparent hover:border-gray-200 backdrop-blur-sm ${
@@ -291,7 +292,7 @@ const Navbar = () => {
                       Learn more
                       <ArrowRight className="w-4 h-4 ml-1" />
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -323,14 +324,14 @@ const Navbar = () => {
                 {activeDropdown === "mobile-personal" && (
                   <div className="pl-8 space-y-1 mt-2 animate-slideDown">
                     {personalBankingItems.map((item) => (
-                      <a
+                      <Link
                         key={item.title}
                         href={item.href}
                         className="block py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -355,14 +356,14 @@ const Navbar = () => {
                 {activeDropdown === "mobile-business" && (
                   <div className="pl-8 space-y-1 mt-2 animate-slideDown">
                     {businessBankingItems.map((item) => (
-                      <a
+                      <Link
                         key={item.title}
                         href={item.href}
                         className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -370,51 +371,52 @@ const Navbar = () => {
 
               {/* Mobile Regular Items */}
               <div className="space-y-1">
-                <a
+                <Link
                   href="/mortgages"
                   className="block py-3 font-medium text-black hover:text-gray-700 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   Mortgages
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/investments"
                   className="block py-3 font-medium text-black hover:text-gray-700 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   Investments
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/insurance"
                   className="block py-3 font-medium text-black hover:text-gray-700 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   Insurance
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/about-us"
                   className="block py-3 font-medium text-black hover:text-gray-700 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   About Us
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/contact-us"
                   className="block py-3 font-medium text-black hover:text-gray-700 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   Contact Us
-                </a>
+                </Link>
               </div>
 
               {/* Mobile CTA */}
               <div className="pt-6 border-t border-gray-200 space-y-3">
-                <button
-                  className="w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors"
+                <Link
+                  href="/login"
+                  className="block w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   Login
-                </button>
+                </Link>
                 <button
                   className="w-full bg-black text-white py-3 rounded-md font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
                   onClick={() => setIsOpen(false)}
