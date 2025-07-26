@@ -46,8 +46,8 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-200  relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+    <section className="py-20 bg-[#ffffff]  relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 bg-[#ffffff]">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight">

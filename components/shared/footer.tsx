@@ -15,9 +15,6 @@ export default function PrimeBankFooter() {
           {/* Logo and Description Section */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-
-              </div>
               <div className="flex items-baseline">
                 <span className="text-2xl font-black text-white tracking-tight">Prime</span>
                 <span className="text-xl font-black text-white ml-1">Bank</span>
