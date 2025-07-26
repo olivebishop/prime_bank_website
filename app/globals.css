@@ -153,3 +153,104 @@
   pointer-events: none;
   z-index: 1;
 }
+
+@keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(20px) scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+          }
+        }
+
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(-6px);
+          }
+          50% {
+            transform: translateY(6px);
+          }
+        }
+
+        @keyframes float-reverse {
+          0%, 100% {
+            transform: translateY(6px);
+          }
+          50% {
+            transform: translateY(-6px);
+          }
+        }
+
+        .animate-fadeInUp {
+          animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-slideInLeft {
+          animation: slideInLeft 0.6s ease-out forwards;
+        }
+
+        .animate-slideInRight {
+          animation: slideInRight 1s ease-out forwards;
+        }
+
+        .animate-float {
+          animation: float 4s ease-in-out infinite;
+        }
+
+        .animate-float-reverse {
+          animation: float-reverse 3s ease-in-out infinite;
+        }
+
+         @keyframes fadeInDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            max-height: 0;
+          }
+          to {
+            opacity: 1;
+            max-height: 1000px;
+          }
+        }
+
+        .animate-fadeInDown {
+          animation: fadeInDown 0.2s ease-out forwards;
+        }
+
+        .animate-slideDown {
+          animation: slideDown 0.3s ease-out forwards;
+        }

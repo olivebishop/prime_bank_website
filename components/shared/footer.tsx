@@ -1,16 +1,13 @@
 "use client"
 
-import { Facebook, Linkedin, Instagram, Twitter, Shield } from "lucide-react"
-import GrainOverlay from "@/components/shared/grainOverlay"
+import { Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
+import GrainOverlay from "@/components/shared/grainOverlay";
 
 export default function PrimeBankFooter() {
   return (
-    <footer className="bg-black text-white relative overflow-hidden grain-overlay">
+    <footer className="bg-black text-white relative overflow-hidden">
       {/* Grain Overlay */}
       <GrainOverlay />
-
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-black" />
 
       <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
         {/* Main Content Grid */}
@@ -18,22 +15,22 @@ export default function PrimeBankFooter() {
           {/* Logo and Description Section */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <Shield className="w-7 h-7 text-white" />
+              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+
               </div>
               <div className="flex items-baseline">
                 <span className="text-2xl font-black text-white tracking-tight">Prime</span>
-                <span className="text-xl font-black  ml-1">Bank</span>
+                <span className="text-xl font-black text-white ml-1">Bank</span>
               </div>
             </div>
 
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Your trusted financial partner in the UK. We provide comprehensive banking solutions with a commitment to
               excellence and customer satisfaction.
             </p>
 
-            <div className="flex items-center gap-2 text-sm text-blue-400">
-              <Shield className="w-4 h-4" />
+            <div className="flex items-center gap-2 text-sm text-gray-300">
+             
               <span>FCA Regulated & FSCS Protected</span>
             </div>
           </div>
@@ -41,29 +38,29 @@ export default function PrimeBankFooter() {
           {/* Services Section */}
           <div className="lg:col-span-2">
             <h4 className="font-semibold text-white mb-6 text-lg">Services</h4>
-            <ul className="space-y-3 text-slate-400">
+            <ul className="space-y-3 text-gray-400">
               <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
+                <a href="#" className="hover:text-white transition-colors">
                   Personal Banking
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
+                <a href="#" className="hover:text-white transition-colors">
                   Business Banking
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
+                <a href="#" className="hover:text-white transition-colors">
                   Loans & Credit
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
+                <a href="#" className="hover:text-white transition-colors">
                   Investment
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
+                <a href="#" className="hover:text-white transition-colors">
                   Insurance
                 </a>
               </li>
@@ -73,24 +70,24 @@ export default function PrimeBankFooter() {
           {/* Company Section */}
           <div className="lg:col-span-2">
             <h4 className="font-semibold text-white mb-6 text-lg">Company</h4>
-            <ul className="space-y-3 text-slate-400">
+            <ul className="space-y-3 text-gray-400">
               <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
+                <a href="#" className="hover:text-white transition-colors">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
+                <a href="#" className="hover:text-white transition-colors">
                   Careers
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
+                <a href="#" className="hover:text-white transition-colors">
                   Contact
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-400 transition-colors">
+                <a href="#" className="hover:text-white transition-colors">
                   Support
                 </a>
               </li>
@@ -102,11 +99,11 @@ export default function PrimeBankFooter() {
             {/* Branch Info */}
             <div className="mb-8">
               <h4 className="font-semibold text-white mb-6 text-lg">Visit Us</h4>
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 border border-blue-500/10">
+              <div className="bg-gray-900 backdrop-blur-sm rounded-lg p-6 border border-gray-700">
                 <div className="font-medium text-white mb-2">London Headquarters</div>
-                <div className="text-slate-400 text-sm mb-1">25 Canary Wharf</div>
-                <div className="text-slate-400 text-sm mb-3">London E14 5AB</div>
-                <div className="text-blue-400 text-sm">Mon - Fri: 9:00 AM - 5:00 PM</div>
+                <div className="text-gray-400 text-sm mb-1">25 Canary Wharf</div>
+                <div className="text-gray-400 text-sm mb-3">London E14 5AB</div>
+                <div className="text-gray-300 text-sm">Mon - Fri: 9:00 AM - 5:00 PM</div>
               </div>
             </div>
 
@@ -116,31 +113,31 @@ export default function PrimeBankFooter() {
               <div className="grid grid-cols-2 gap-3">
                 <a
                   href="#"
-                  className="flex items-center justify-center gap-2 p-3 rounded-lg bg-slate-800/50 backdrop-blur-sm border border-blue-500/10 hover:bg-blue-600 hover:border-blue-500/30 transition-all duration-300 group"
+                  className="flex items-center justify-center gap-2 p-3 rounded-lg bg-gray-900 backdrop-blur-sm border border-gray-700 hover:bg-gray-800 hover:border-gray-600 transition-all duration-300 group"
                 >
-                  <Facebook className="w-4 h-4 text-blue-400 group-hover:text-white" />
-                  <span className="text-slate-300 group-hover:text-white text-sm font-medium">Facebook</span>
+                  <Facebook className="w-4 h-4 text-gray-400 group-hover:text-white" />
+                  <span className="text-gray-300 group-hover:text-white text-sm font-medium">Facebook</span>
                 </a>
                 <a
                   href="#"
-                  className="flex items-center justify-center gap-2 p-3 rounded-lg bg-slate-800/50 backdrop-blur-sm border border-blue-500/10 hover:bg-blue-600 hover:border-blue-500/30 transition-all duration-300 group"
+                  className="flex items-center justify-center gap-2 p-3 rounded-lg bg-gray-900 backdrop-blur-sm border border-gray-700 hover:bg-gray-800 hover:border-gray-600 transition-all duration-300 group"
                 >
-                  <Twitter className="w-4 h-4 text-blue-400 group-hover:text-white" />
-                  <span className="text-slate-300 group-hover:text-white text-sm font-medium">Twitter</span>
+                  <Twitter className="w-4 h-4 text-gray-400 group-hover:text-white" />
+                  <span className="text-gray-300 group-hover:text-white text-sm font-medium">Twitter</span>
                 </a>
                 <a
                   href="#"
-                  className="flex items-center justify-center gap-2 p-3 rounded-lg bg-slate-800/50 backdrop-blur-sm border border-blue-500/10 hover:bg-blue-600 hover:border-blue-500/30 transition-all duration-300 group"
+                  className="flex items-center justify-center gap-2 p-3 rounded-lg bg-gray-900 backdrop-blur-sm border border-gray-700 hover:bg-gray-800 hover:border-gray-600 transition-all duration-300 group"
                 >
-                  <Instagram className="w-4 h-4 text-blue-400 group-hover:text-white" />
-                  <span className="text-slate-300 group-hover:text-white text-sm font-medium">Instagram</span>
+                  <Instagram className="w-4 h-4 text-gray-400 group-hover:text-white" />
+                  <span className="text-gray-300 group-hover:text-white text-sm font-medium">Instagram</span>
                 </a>
                 <a
                   href="#"
-                  className="flex items-center justify-center gap-2 p-3 rounded-lg bg-slate-800/50 backdrop-blur-sm border border-blue-500/10 hover:bg-blue-600 hover:border-blue-500/30 transition-all duration-300 group"
+                  className="flex items-center justify-center gap-2 p-3 rounded-lg bg-gray-900 backdrop-blur-sm border border-gray-700 hover:bg-gray-800 hover:border-gray-600 transition-all duration-300 group"
                 >
-                  <Linkedin className="w-4 h-4 text-blue-400 group-hover:text-white" />
-                  <span className="text-slate-300 group-hover:text-white text-sm font-medium">LinkedIn</span>
+                  <Linkedin className="w-4 h-4 text-gray-400 group-hover:text-white" />
+                  <span className="text-gray-300 group-hover:text-white text-sm font-medium">LinkedIn</span>
                 </a>
               </div>
             </div>
@@ -148,9 +145,9 @@ export default function PrimeBankFooter() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-slate-700/50 pt-8">
+        <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex flex-col md:flex-row items-center gap-6 text-sm text-slate-400">
+            <div className="flex flex-col md:flex-row items-center gap-6 text-sm text-gray-400">
               <span>© 2025 Prime Bank. All rights reserved.</span>
               <div className="flex items-center gap-6">
                 <a href="#" className="hover:text-white transition-colors">
@@ -165,7 +162,7 @@ export default function PrimeBankFooter() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 text-sm text-slate-400">
+            <div className="flex items-center gap-3 text-sm text-gray-400">
               <span>Crafted by 🐦‍⬛</span>
               <a
                 href="https://crowstudios.tech"
@@ -180,5 +177,5 @@ export default function PrimeBankFooter() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

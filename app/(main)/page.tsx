@@ -6,9 +6,9 @@ import CTASection from "@/components/shared/cta"
 
 function page() {
   return (
-    <main className="min-h-screen bg-slate-900 relative">
+    <main className="min-h-screen bg-white relative">
       {/* Ensure consistent background coverage */}
-      <div className="fixed inset-0 bg-slate-900 -z-10" />
+      <div className="fixed inset-0 bg-white -z-10" />
       {/* Hero Section */}
       <PrimeBankHero />
       {/* Services Section */}
