@@ -78,7 +78,7 @@ const Navbar = () => {
     {
       title: "Commercial Finance",
       description: "Property & asset finance solutions",
-      href: "/business/finance",
+      href: "/business/commercial/finance",
     },
   ];
 
@@ -179,7 +179,7 @@ const Navbar = () => {
                   href="https://facebook.com/primebank"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-blue-400 transition-colors"
+                  className="text-white hover:text-gray-300 transition-colors"
                   aria-label="Follow us on Facebook"
                 >
                   <Facebook className="w-4 h-4" />
@@ -188,7 +188,7 @@ const Navbar = () => {
                   href="https://instagram.com/primebank"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-pink-400 transition-colors"
+                  className="text-white hover:text-gray-300 transition-colors"
                   aria-label="Follow us on Instagram"
                 >
                   <Instagram className="w-4 h-4" />
@@ -354,15 +354,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
               {/* Section Header */}
               <div className="flex items-center gap-3 mb-8 pb-4 border-b border-gray-200">
-                <div className={`p-3 rounded-lg ${
-                  activeDropdown === "personal" 
-                    ? "bg-blue-50 text-blue-600"
-                    : activeDropdown === "business"
-                    ? "bg-green-50 text-green-600"
-                    : activeDropdown === "services"
-                    ? "bg-purple-50 text-purple-600"
-                    : "bg-orange-50 text-orange-600"
-                }`}>
+                <div className="p-3 rounded-lg bg-gray-100 text-black">
                   {activeDropdown === "personal" ? (
                     <User className="w-5 h-5" />
                   ) : activeDropdown === "business" ? (
@@ -405,34 +397,13 @@ const Navbar = () => {
                   <Link
                     key={item.title}
                     href={item.href}
-                    className={`group p-6 rounded-lg hover:bg-gray-50 transition-all duration-200 border border-transparent hover:border-gray-200 backdrop-blur-sm cursor-pointer ${
-                      activeDropdown === "personal" 
-                        ? "hover:bg-blue-50/50" 
-                        : activeDropdown === "business"
-                        ? "hover:bg-green-50/50"
-                        : activeDropdown === "services"
-                        ? "hover:bg-purple-50/50"
-                        : "hover:bg-orange-50/50"
-                    }`}
+                    className="group p-6 rounded-lg hover:bg-gray-50 transition-all duration-200 border border-transparent hover:border-gray-200 backdrop-blur-sm cursor-pointer"
                   >
-                    <h4 className={`font-semibold mb-2 transition-colors ${
-                      activeDropdown === "personal"
-                        ? "text-black group-hover:text-blue-600"
-                        : activeDropdown === "business"
-                        ? "text-black group-hover:text-green-600"
-                        : activeDropdown === "services"
-                        ? "text-black group-hover:text-purple-600"
-                        : "text-black group-hover:text-orange-600"
-                    }`}>
+                    <h4 className="font-semibold mb-2 text-black group-hover:text-black transition-colors">
                       {item.title}
                     </h4>
                     <p className="text-sm text-gray-600 leading-relaxed mb-3">{item.description}</p>
-                    <div className={`flex items-center text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity ${
-                      activeDropdown === "personal" ? "text-blue-600"
-                      : activeDropdown === "business" ? "text-green-600"
-                      : activeDropdown === "services" ? "text-purple-600"
-                      : "text-orange-600"
-                    }`}>
+                    <div className="flex items-center text-sm font-medium text-black opacity-0 group-hover:opacity-100 transition-opacity">
                       Learn more
                       <ArrowRight className="w-4 h-4 ml-1" />
                     </div>
@@ -456,7 +427,7 @@ const Navbar = () => {
                   className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
-                    <User className="w-5 h-5 text-blue-600" />
+                    <User className="w-5 h-5 text-black" />
                     Personal Banking
                   </span>
                   <ChevronDown
@@ -471,7 +442,7 @@ const Navbar = () => {
                       <Link
                         key={item.title}
                         href={item.href}
-                        className="block py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+                        className="block py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}
@@ -488,7 +459,7 @@ const Navbar = () => {
                   className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
-                    <Building2 className="w-5 h-5 text-green-600" />
+                    <Building2 className="w-5 h-5 text-black" />
                     Business Banking
                   </span>
                   <ChevronDown
@@ -503,7 +474,7 @@ const Navbar = () => {
                       <Link
                         key={item.title}
                         href={item.href}
-                        className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors cursor-pointer"
+                        className="block py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}
@@ -520,7 +491,7 @@ const Navbar = () => {
                   className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
-                    <Briefcase className="w-5 h-5 text-purple-600" />
+                    <Briefcase className="w-5 h-5 text-black" />
                     Services
                   </span>
                   <ChevronDown
@@ -535,7 +506,7 @@ const Navbar = () => {
                       <Link
                         key={item.title}
                         href={item.href}
-                        className="block py-2 text-sm text-gray-600 hover:text-purple-600 transition-colors cursor-pointer"
+                        className="block py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}
@@ -552,7 +523,7 @@ const Navbar = () => {
                   className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
-                    <Home className="w-5 h-5 text-orange-600" />
+                    <Home className="w-5 h-5 text-black" />
                     About
                   </span>
                   <ChevronDown
@@ -567,7 +538,7 @@ const Navbar = () => {
                       <Link
                         key={item.title}
                         href={item.href}
-                        className="block py-2 text-sm text-gray-600 hover:text-orange-600 transition-colors cursor-pointer"
+                        className="block py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}
