@@ -132,7 +132,7 @@ export default function PrimeBankFooter() {
                   className="flex items-center justify-center gap-2 p-3 rounded-lg bg-gray-900 backdrop-blur-sm border border-gray-700 hover:bg-gray-800 hover:border-gray-600 transition-all duration-300 group"
                 >
                   <XLogo className="w-4 h-4 text-gray-400 group-hover:text-white" />
-                  <span className="text-gray-300 group-hover:text-white text-sm font-medium">X</span>
+                  <span className="text-gray-300 group-hover:text-white text-sm font-medium">Twitter</span>
                 </a>
                 <a
                   href="#"
