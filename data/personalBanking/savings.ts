@@ -1,4 +1,4 @@
-import { PiggyBank, Shield, TrendingUp, Target } from 'lucide-react';
+import { PiggyBank, Shield, TrendingUp, Target, Check } from 'lucide-react';
 
 export interface SavingsProduct {
   id: string;
@@ -48,3 +48,29 @@ export const savingsProducts: SavingsProduct[] = [
     access: "Limited"
   }
 ];
+export const savingsBenefits = [
+    { 
+      id: 'protected', 
+      icon: Shield, 
+      title: 'FSCS Protected', 
+      description: 'Your deposits are protected up to £85,000 under the Financial Services Compensation Scheme' 
+    },
+    { 
+      id: 'no-fees', 
+      icon: Check, 
+      title: 'No Hidden Fees', 
+      description: 'Transparent pricing with no monthly charges or maintenance fees on your savings account' 
+    },
+    { 
+      id: 'competitive', 
+      icon: Target, 
+      title: 'Competitive Rates', 
+      description: 'Market-leading interest rates on all accounts to help your money grow faster' 
+    },
+    { 
+      id: 'flexible', 
+      icon: PiggyBank, 
+      title: 'Flexible Access', 
+      description: 'Easy access to your savings with online banking and mobile app management' 
+    }
+  ];

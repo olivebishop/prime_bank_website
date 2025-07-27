@@ -1,8 +1,20 @@
 "use client"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Menu, X, ArrowRight, ChevronDown, Shield, User, Building2 } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown, Shield, User, Building2, Home, Briefcase, Facebook, Instagram } from "lucide-react";
+
+// Custom X (Twitter) icon component
+const XIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+);
 
 const GrainOverlay = () => (
   <div 
@@ -18,6 +30,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,17 +82,80 @@ const Navbar = () => {
     },
   ];
 
+  const servicesItems = [
+    {
+      title: "Mortgages",
+      description: "Home financing solutions with competitive rates",
+      href: "/mortgages",
+    },
+    {
+      title: "Investments",
+      description: "Grow your wealth with our investment products",
+      href: "/investments",
+    },
+    {
+      title: "Insurance",
+      description: "Protect what matters most to you",
+      href: "/insurance",
+    },
+  ];
+
+  const aboutItems = [
+    {
+      title: "About Us",
+      description: "Learn about our history and values",
+      href: "/about-us",
+    },
+    {
+      title: "Contact Us",
+      description: "Get in touch with our team",
+      href: "/contact-us",
+    },
+  ];
+
   const handleDropdownToggle = (dropdown: string) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
   };
 
+  // Improved hover handlers
   const handleMouseEnter = (dropdown: string) => {
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
     setActiveDropdown(dropdown);
   };
 
   const handleMouseLeave = () => {
+    // Set a timeout to close the dropdown
+    timeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 150); // 150ms delay
+  };
+
+  // Handle dropdown container mouse events
+  const handleDropdownMouseEnter = () => {
+    // Clear the timeout when mouse enters dropdown
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
+
+  const handleDropdownMouseLeave = () => {
+    // Close dropdown when mouse leaves the dropdown area
     setActiveDropdown(null);
   };
+
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -97,9 +173,36 @@ const Navbar = () => {
             </div>
             <div className="flex items-center gap-6">
               <span className="hidden sm:block">24/7 Support: 0800 123 4567</span>
-              <button className="text-white hover:text-gray-200 transition-colors">
-                Find Branch
-              </button>
+              {/* Social Media Icons */}
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://facebook.com/primebank"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-blue-400 transition-colors"
+                  aria-label="Follow us on Facebook"
+                >
+                  <Facebook className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://instagram.com/primebank"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-pink-400 transition-colors"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://x.com/primebank"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-gray-300 transition-colors"
+                  aria-label="Follow us on X"
+                >
+                  <XIcon className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -113,7 +216,7 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
-            {/* Logo - Fixed: Changed from <a> to <Link> */}
+            {/* Logo */}
             <Link 
               href="/"
               className="flex items-center gap-3 cursor-pointer flex-shrink-0 hover:scale-105 transition-transform duration-200"
@@ -134,13 +237,14 @@ const Navbar = () => {
                   onMouseLeave={handleMouseLeave}
                 >
                   <button
-                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md ${
+                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${
                       activeDropdown === "personal" 
                         ? "text-black bg-gray-100" 
                         : "text-gray-700 hover:text-black hover:bg-gray-50"
                     }`}
                   >
-                    Personal Banking
+                    <User className="w-4 h-4 flex-shrink-0" />
+                    Personal
                     <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
                       activeDropdown === "personal" ? "rotate-180" : ""
                     }`} />
@@ -154,73 +258,81 @@ const Navbar = () => {
                   onMouseLeave={handleMouseLeave}
                 >
                   <button
-                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md ${
+                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${
                       activeDropdown === "business" 
                         ? "text-black bg-gray-100" 
                         : "text-gray-700 hover:text-black hover:bg-gray-50"
                     }`}
                   >
-                    Business Banking
+                    <Building2 className="w-4 h-4 flex-shrink-0" />
+                    Business
                     <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
                       activeDropdown === "business" ? "rotate-180" : ""
                     }`} />
                   </button>
                 </div>
 
-                {/* Regular Navigation Items */}
-                <Link
-                  href="/mortgages"
-                  className="px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md"
+                {/* Services Dropdown */}
+                <div 
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter("services")}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  Mortgages
-                </Link>
-                <Link
-                  href="/investments"
-                  className="px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md"
+                  <button
+                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${
+                      activeDropdown === "services" 
+                        ? "text-black bg-gray-100" 
+                        : "text-gray-700 hover:text-black hover:bg-gray-50"
+                    }`}
+                  >
+                    <Briefcase className="w-4 h-4 flex-shrink-0" />
+                    Services
+                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
+                      activeDropdown === "services" ? "rotate-180" : ""
+                    }`} />
+                  </button>
+                </div>
+
+                {/* About Dropdown */}
+                <div 
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter("about")}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  Investments
-                </Link>
-                <Link
-                  href="/insurance"
-                  className="px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md"
-                >
-                  Insurance
-                </Link>
-                <Link
-                  href="/about-us"
-                  className="px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md"
-                >
-                  About Us
-                </Link>
-                <Link
-                  href="/contact-us"
-                  className="px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md"
-                >
-                  Contact Us
-                </Link>
+                  <button
+                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${
+                      activeDropdown === "about" 
+                        ? "text-black bg-gray-100" 
+                        : "text-gray-700 hover:text-black hover:bg-gray-50"
+                    }`}
+                  >
+                    <Home className="w-4 h-4 flex-shrink-0" />
+                    About
+                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
+                      activeDropdown === "about" ? "rotate-180" : ""
+                    }`} />
+                  </button>
+                </div>
               </div>
             </nav>
 
             {/* Right Side Actions */}
             <div className="flex items-center gap-3 flex-shrink-0">
-              {/* Login Link */}
               <Link
                 href="/login"
-                className="hidden lg:block px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md"
+                className="hidden lg:block px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer"
               >
                 Login
               </Link>
               
-              {/* Open Account Button */}
-              <button className="hidden lg:flex bg-black text-white px-6 py-2.5 rounded-md text-sm xl:text-base font-medium hover:bg-gray-800 hover:scale-105 transition-all duration-200 items-center gap-2 whitespace-nowrap">
+              <button className="hidden lg:flex bg-black text-white px-6 py-2.5 rounded-md text-sm xl:text-base font-medium hover:bg-gray-800 hover:scale-105 transition-all duration-200 items-center gap-2 whitespace-nowrap cursor-pointer">
                 <span>Open Account</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden p-2 rounded-md hover:bg-gray-100 transition-colors flex-shrink-0"
+                className="lg:hidden p-2 rounded-md hover:bg-gray-100 transition-colors flex-shrink-0 cursor-pointer"
               >
                 <div className={`transform transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}>
                   {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -231,11 +343,11 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Mega Menu */}
-        {(activeDropdown === "personal" || activeDropdown === "business") && (
+        {(activeDropdown === "personal" || activeDropdown === "business" || activeDropdown === "services" || activeDropdown === "about") && (
           <div
-            className="absolute top-full left-0 w-full bg-white border-t shadow-lg relative overflow-hidden opacity-0 animate-fadeInDown"
-            onMouseEnter={() => handleMouseEnter(activeDropdown || "")}
-            onMouseLeave={handleMouseLeave}
+            className="absolute top-full left-0 w-full bg-white border-t shadow-lg relative overflow-hidden opacity-100 animate-fadeInDown z-50"
+            onMouseEnter={handleDropdownMouseEnter}
+            onMouseLeave={handleDropdownMouseLeave}
           >
             <GrainOverlay />
             
@@ -244,50 +356,82 @@ const Navbar = () => {
               <div className="flex items-center gap-3 mb-8 pb-4 border-b border-gray-200">
                 <div className={`p-3 rounded-lg ${
                   activeDropdown === "personal" 
-                    ? "bg-blue-50 text-blue-600" 
-                    : "bg-green-50 text-green-600"
+                    ? "bg-blue-50 text-blue-600"
+                    : activeDropdown === "business"
+                    ? "bg-green-50 text-green-600"
+                    : activeDropdown === "services"
+                    ? "bg-purple-50 text-purple-600"
+                    : "bg-orange-50 text-orange-600"
                 }`}>
                   {activeDropdown === "personal" ? (
                     <User className="w-5 h-5" />
-                  ) : (
+                  ) : activeDropdown === "business" ? (
                     <Building2 className="w-5 h-5" />
+                  ) : activeDropdown === "services" ? (
+                    <Briefcase className="w-5 h-5" />
+                  ) : (
+                    <Home className="w-5 h-5" />
                   )}
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-black">
-                    {activeDropdown === "personal" ? "Personal Banking" : "Business Banking"}
+                    {activeDropdown === "personal" ? "Personal Banking" 
+                     : activeDropdown === "business" ? "Business Banking"
+                     : activeDropdown === "services" ? "Our Services"
+                     : "About Prime Bank"}
                   </h3>
                   <p className="text-sm text-gray-600">
                     {activeDropdown === "personal" 
                       ? "Banking solutions for your personal financial needs" 
-                      : "Professional banking services for your business"
+                      : activeDropdown === "business"
+                      ? "Professional banking services for your business"
+                      : activeDropdown === "services"
+                      ? "Comprehensive financial services and products"
+                      : "Learn more about us and get in touch"
                     }
                   </p>
                 </div>
               </div>
 
               {/* Menu Items Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {(activeDropdown === "personal" ? personalBankingItems : businessBankingItems).map((item) => (
+              <div className={`grid grid-cols-1 ${
+                activeDropdown === "about" ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-4"
+              } gap-6`}>
+                {(activeDropdown === "personal" ? personalBankingItems 
+                  : activeDropdown === "business" ? businessBankingItems
+                  : activeDropdown === "services" ? servicesItems
+                  : aboutItems
+                ).map((item) => (
                   <Link
                     key={item.title}
                     href={item.href}
-                    className={`group p-6 rounded-lg hover:bg-gray-50 transition-all duration-200 border border-transparent hover:border-gray-200 backdrop-blur-sm ${
+                    className={`group p-6 rounded-lg hover:bg-gray-50 transition-all duration-200 border border-transparent hover:border-gray-200 backdrop-blur-sm cursor-pointer ${
                       activeDropdown === "personal" 
                         ? "hover:bg-blue-50/50" 
-                        : "hover:bg-green-50/50"
+                        : activeDropdown === "business"
+                        ? "hover:bg-green-50/50"
+                        : activeDropdown === "services"
+                        ? "hover:bg-purple-50/50"
+                        : "hover:bg-orange-50/50"
                     }`}
                   >
                     <h4 className={`font-semibold mb-2 transition-colors ${
                       activeDropdown === "personal"
                         ? "text-black group-hover:text-blue-600"
-                        : "text-black group-hover:text-green-600"
+                        : activeDropdown === "business"
+                        ? "text-black group-hover:text-green-600"
+                        : activeDropdown === "services"
+                        ? "text-black group-hover:text-purple-600"
+                        : "text-black group-hover:text-orange-600"
                     }`}>
                       {item.title}
                     </h4>
                     <p className="text-sm text-gray-600 leading-relaxed mb-3">{item.description}</p>
                     <div className={`flex items-center text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity ${
-                      activeDropdown === "personal" ? "text-blue-600" : "text-green-600"
+                      activeDropdown === "personal" ? "text-blue-600"
+                      : activeDropdown === "business" ? "text-green-600"
+                      : activeDropdown === "services" ? "text-purple-600"
+                      : "text-orange-600"
                     }`}>
                       Learn more
                       <ArrowRight className="w-4 h-4 ml-1" />
@@ -309,7 +453,7 @@ const Navbar = () => {
               <div className="border-b border-gray-200 pb-4">
                 <button
                   onClick={() => handleDropdownToggle("mobile-personal")}
-                  className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors"
+                  className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
                     <User className="w-5 h-5 text-blue-600" />
@@ -327,7 +471,7 @@ const Navbar = () => {
                       <Link
                         key={item.title}
                         href={item.href}
-                        className="block py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                        className="block py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}
@@ -341,7 +485,7 @@ const Navbar = () => {
               <div className="border-b border-gray-200 pb-4">
                 <button
                   onClick={() => handleDropdownToggle("mobile-business")}
-                  className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors"
+                  className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
                     <Building2 className="w-5 h-5 text-green-600" />
@@ -359,7 +503,7 @@ const Navbar = () => {
                       <Link
                         key={item.title}
                         href={item.href}
-                        className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors"
+                        className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors cursor-pointer"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}
@@ -369,56 +513,81 @@ const Navbar = () => {
                 )}
               </div>
 
-              {/* Mobile Regular Items */}
-              <div className="space-y-1">
-                <Link
-                  href="/mortgages"
-                  className="block py-3 font-medium text-black hover:text-gray-700 transition-colors"
-                  onClick={() => setIsOpen(false)}
+              {/* Mobile Services */}
+              <div className="border-b border-gray-200 pb-4">
+                <button
+                  onClick={() => handleDropdownToggle("mobile-services")}
+                  className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
                 >
-                  Mortgages
-                </Link>
-                <Link
-                  href="/investments"
-                  className="block py-3 font-medium text-black hover:text-gray-700 transition-colors"
-                  onClick={() => setIsOpen(false)}
+                  <span className="flex items-center gap-3">
+                    <Briefcase className="w-5 h-5 text-purple-600" />
+                    Services
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 transition-transform ${
+                      activeDropdown === "mobile-services" ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {activeDropdown === "mobile-services" && (
+                  <div className="pl-8 space-y-1 mt-2 animate-slideDown">
+                    {servicesItems.map((item) => (
+                      <Link
+                        key={item.title}
+                        href={item.href}
+                        className="block py-2 text-sm text-gray-600 hover:text-purple-600 transition-colors cursor-pointer"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Mobile About */}
+              <div className="border-b border-gray-200 pb-4">
+                <button
+                  onClick={() => handleDropdownToggle("mobile-about")}
+                  className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
                 >
-                  Investments
-                </Link>
-                <Link
-                  href="/insurance"
-                  className="block py-3 font-medium text-black hover:text-gray-700 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Insurance
-                </Link>
-                <Link
-                  href="/about-us"
-                  className="block py-3 font-medium text-black hover:text-gray-700 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  About Us
-                </Link>
-                <Link
-                  href="/contact-us"
-                  className="block py-3 font-medium text-black hover:text-gray-700 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Contact Us
-                </Link>
+                  <span className="flex items-center gap-3">
+                    <Home className="w-5 h-5 text-orange-600" />
+                    About
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 transition-transform ${
+                      activeDropdown === "mobile-about" ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {activeDropdown === "mobile-about" && (
+                  <div className="pl-8 space-y-1 mt-2 animate-slideDown">
+                    {aboutItems.map((item) => (
+                      <Link
+                        key={item.title}
+                        href={item.href}
+                        className="block py-2 text-sm text-gray-600 hover:text-orange-600 transition-colors cursor-pointer"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Mobile CTA */}
               <div className="pt-6 border-t border-gray-200 space-y-3">
                 <Link
                   href="/login"
-                  className="block w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors"
+                  className="block w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
                   Login
                 </Link>
                 <button
-                  className="w-full bg-black text-white py-3 rounded-md font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
+                  className="w-full bg-black text-white py-3 rounded-md font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>Open Account</span>
@@ -429,8 +598,6 @@ const Navbar = () => {
           </div>
         )}
       </header>
-
-    
     </>
   );
 };

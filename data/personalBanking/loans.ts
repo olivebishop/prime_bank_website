@@ -65,3 +65,21 @@ export const loanBenefitsData = [
     description: "Representative APR from 3.9% with our best rates for existing customers"
   }
 ];
+
+export const loanPhilosophy = [
+  {
+    id: 'responsible-lending',
+    title: 'Responsible Lending',
+    description: 'We only lend what you can afford to repay, ensuring your financial wellbeing comes first.'
+  },
+  {
+    id: 'transparent-terms',
+    title: 'Transparent Terms',
+    description: 'Clear, straightforward loan terms with no hidden fees or confusing conditions.'
+  },
+  {
+    id: 'customer-support',
+    title: 'Ongoing Support',
+    description: 'Comprehensive support throughout your loan journey, from application to final payment.'
+  }
+];

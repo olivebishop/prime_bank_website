@@ -1,7 +1,19 @@
 "use client"
 
-import { Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
+import { Facebook, Linkedin, Instagram } from "lucide-react";
 import GrainOverlay from "@/components/shared/grainOverlay";
+
+// Custom X (Twitter) Logo Component
+const XLogo = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    className={className}
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+);
 
 export default function PrimeBankFooter() {
   return (
@@ -37,27 +49,27 @@ export default function PrimeBankFooter() {
             <h4 className="font-semibold text-white mb-6 text-lg">Services</h4>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/personal-banking/current-account" className="hover:text-white transition-colors">
                   Personal Banking
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/business/finance" className="hover:text-white transition-colors">
                   Business Banking
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/business/loans" className="hover:text-white transition-colors">
                   Loans & Credit
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/investments" className="hover:text-white transition-colors">
                   Investment
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/insurance" className="hover:text-white transition-colors">
                   Insurance
                 </a>
               </li>
@@ -69,22 +81,22 @@ export default function PrimeBankFooter() {
             <h4 className="font-semibold text-white mb-6 text-lg">Company</h4>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/about-us" className="hover:text-white transition-colors">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/careers" className="hover:text-white transition-colors">
                   Careers
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/contact-us" className="hover:text-white transition-colors">
                   Contact
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/contact-us" className="hover:text-white transition-colors">
                   Support
                 </a>
               </li>
@@ -119,8 +131,8 @@ export default function PrimeBankFooter() {
                   href="#"
                   className="flex items-center justify-center gap-2 p-3 rounded-lg bg-gray-900 backdrop-blur-sm border border-gray-700 hover:bg-gray-800 hover:border-gray-600 transition-all duration-300 group"
                 >
-                  <Twitter className="w-4 h-4 text-gray-400 group-hover:text-white" />
-                  <span className="text-gray-300 group-hover:text-white text-sm font-medium">Twitter</span>
+                  <XLogo className="w-4 h-4 text-gray-400 group-hover:text-white" />
+                  <span className="text-gray-300 group-hover:text-white text-sm font-medium">X</span>
                 </a>
                 <a
                   href="#"
@@ -147,13 +159,13 @@ export default function PrimeBankFooter() {
             <div className="flex flex-col md:flex-row items-center gap-6 text-sm text-gray-400">
               <span>© 2025 Prime Bank. All rights reserved.</span>
               <div className="flex items-center gap-6">
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="privacy-policy" className="hover:text-white transition-colors">
                   Privacy Policy
                 </a>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="terms-of-service" className="hover:text-white transition-colors">
                   Terms of Service
                 </a>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="cookies-policy" className="hover:text-white transition-colors">
                   Cookie Policy
                 </a>
               </div>

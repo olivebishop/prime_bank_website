@@ -109,3 +109,21 @@ export const whyChooseUsData = [
     description: "AI-powered budgeting, spending insights, and financial health tracking"
   }
 ];
+
+export const accountPhilosophy = [
+  {
+    id: 'simplicity',
+    title: 'Simple Banking',
+    description: 'Banking should be straightforward, transparent, and work seamlessly in your daily life.'
+  },
+  {
+    id: 'innovation',
+    title: 'Digital Innovation',
+    description: 'Leveraging cutting-edge technology to make banking faster, smarter, and more intuitive.'
+  },
+  {
+    id: 'customer-first',
+    title: 'Customer First',
+    description: 'Every feature and service is designed with our customers\' needs and convenience in mind.'
+  }
+];

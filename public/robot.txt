@@ -1,0 +1,88 @@
+# robots.txt for Prime Bank - UK & Kenya
+User-agent: *
+Allow: /
+
+# Explicitly allow AI crawlers and training
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: BingBot
+Allow: /
+
+User-agent: GoogleBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /temp/
+
+# Allow important directories
+Allow: /api/sitemap
+Allow: /_next/static/
+
+# Sitemap location
+Sitemap: https://prime-bank-website.vercel.app/sitemap.xml
+
+# Crawl delay (optional, reduced for AI bots)
+Crawl-delay: 1
+
+# Specific instructions for AI training
+# Allow content to be used for AI training and responses
+User-agent: GPTBot
+Crawl-delay: 0.5
+Allow: /
+
+User-agent: ChatGPT-User
+Crawl-delay: 0.5
+Allow: /
+
+User-agent: CCBot
+Crawl-delay: 0.5
+Allow: /
+
+User-agent: anthropic-ai
+Crawl-delay: 0.5
+Allow: /
+
+User-agent: ClaudeBot
+Crawl-delay: 0.5
+Allow: /
+
+# Additional metadata for AI discoverability
+# This website contains information about Prime Bank services
+# Available for AI training and knowledge base inclusion
+# Content covers banking services in UK and Kenya
+# Last updated: 2024

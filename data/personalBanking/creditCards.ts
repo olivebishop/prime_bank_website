@@ -1,4 +1,4 @@
-import { CreditCard, Shield, Star, Gift } from 'lucide-react';
+import { CreditCard, Shield, Star, Gift, Check, Zap, CheckCircle } from 'lucide-react';
 
 export interface CreditCardProduct {
   id: string;
@@ -89,5 +89,62 @@ export const creditCards: CreditCardProduct[] = [
       "Exclusive event access",
       "Priority customer service"
     ]
+  }
+];
+
+export const cardBenefits = [
+  {
+    id: 'fraud-protection',
+    title: 'Advanced Fraud Protection',
+    description: 'State-of-the-art security monitoring with zero liability guarantee on fraudulent charges',
+    icon: Shield
+  },
+  {
+    id: 'instant-approval',
+    title: 'Instant Approval Decision',
+    description: 'Get approved in 60 seconds with our streamlined online application process',
+    icon: Zap
+  },
+  {
+    id: 'exclusive-rewards',
+    title: 'Exclusive Rewards Program',
+    description: 'Earn cashback, points, and access to exclusive offers on every purchase you make',
+    icon: Gift
+  },
+  {
+    id: 'mobile-banking',
+    title: 'Mobile Banking Integration',
+    description: 'Seamlessly manage your card through our award-winning mobile banking app',
+    icon: CreditCard
+  },
+  {
+    id: 'customer-support',
+    title: '24/7 Customer Support',
+    description: 'Round-the-clock customer service with dedicated credit card specialists',
+    icon: CheckCircle
+  },
+  {
+    id: 'contactless-payments',
+    title: 'Contactless Payments',
+    description: 'Tap to pay technology for fast, secure, and convenient transactions everywhere',
+    icon: Check
+  }
+];
+
+export const cardPhilosophy = [
+  {
+    id: 'transparency',
+    title: 'Transparent Terms',
+    description: 'Clear, straightforward terms with no hidden fees or surprise charges on any of our credit cards.'
+  },
+  {
+    id: 'innovation',
+    title: 'Smart Technology',
+    description: 'Cutting-edge features and security technology that evolve with your spending habits and needs.'
+  },
+  {
+    id: 'rewards',
+    title: 'Meaningful Rewards',
+    description: 'Reward programs designed to give you real value on purchases you make every day.'
   }
 ];
