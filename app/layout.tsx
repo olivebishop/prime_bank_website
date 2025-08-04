@@ -383,7 +383,7 @@ export default function RootLayout({
           <body className={inter.className} suppressHydrationWarning>
     		<ConsentManagerProvider options={{
     				mode: 'offline',
-    				consentCategories: ['necessary', 'marketing'], // Optional: Specify which consent categories to show in the banner. 
+    				consentCategories: ['necessary', 'marketing', ], // Optional: Specify which consent categories to show in the banner. 
     			}}>
     			<CookieBanner />
     			<ConsentManagerDialog />

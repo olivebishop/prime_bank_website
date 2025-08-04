@@ -172,14 +172,14 @@ export default function PrimeBankFooter() {
             </div>
 
             <div className="flex items-center gap-3 text-sm text-gray-400">
-              <span>Crafted by 🐦‍⬛</span>
+              <span>Crafted by </span>
               <a
-                href="https://crowstudios.tech"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors font-medium"
               >
-                Crow Studios
+                SILA TECH
               </a>
             </div>
           </div>
