@@ -92,13 +92,7 @@ export function AppSidebar({ userRole = 'USER', ...props }: AppSidebarProps) {
     },
   ]
 
-  const navActions = [
-    {
-      title: "Sign Out",
-      action: handleSignOut,
-      icon: IconLogout,
-    },
-  ]
+  // Removed unused navActions variable that was causing the ESLint error
 
   const userData = {
     name: user?.fullName || user?.firstName || "User",

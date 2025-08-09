@@ -6,6 +6,7 @@ import { formatCurrency, getSortCode } from "@/lib/account-utils"
 import { IconCreditCard, IconEye, IconEyeOff, IconTrendingUp, IconWallet } from "@tabler/icons-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+
 interface User {
   id: string
   name: string | null
@@ -15,7 +16,7 @@ interface User {
 
 interface Account {
   id: string
-  balance: any
+  balance: number | string  // Fixed: replaced 'any' with specific types
   accountNumber: string
   currency: string
   country: string
@@ -24,7 +25,7 @@ interface Account {
 
 interface Transaction {
   id: string
-  amount: any
+  amount: number | string  // Fixed: replaced 'any' with specific types
   type: string
   description: string | null
   createdAt: Date
@@ -67,7 +68,7 @@ export function DashboardContent({ user, account, recentTransactions }: Dashboar
           Welcome back, {user.name || 'User'}
         </h1>
         <p className="text-muted-foreground">
-          Here's an overview of your account
+          Here&apos;s an overview of your account
         </p>
       </div>
 

@@ -4,9 +4,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { formatCurrency } from "@/lib/account-utils"
 import { IconShield, IconUsers, IconWallet, IconHistory, IconTrendingUp } from "@tabler/icons-react"
+
 interface Transaction {
   id: string
-  amount: any
+  amount: number | string  // Fixed: replaced 'any' with specific types
   type: string
   description: string | null
   createdAt: Date
@@ -33,7 +34,7 @@ interface AdminLog {
 
 interface AdminDashboardContentProps {
   totalUsers: number
-  totalBalance: any
+  totalBalance: number | string  // Fixed: replaced 'any' with specific types
   recentTransactions: Transaction[]
   recentLogs: AdminLog[]
 }

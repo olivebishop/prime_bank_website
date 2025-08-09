@@ -112,7 +112,7 @@ export default async function TransferPage() {
                         <IconTransfer className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
                         <h3 className="text-lg font-semibold mb-2">Transfer Feature Coming Soon</h3>
                         <p className="text-muted-foreground">
-                          We're working on implementing secure money transfers. 
+                          We are working on implementing secure money transfers. 
                           This feature will be available in a future update.
                         </p>
                       </div>
