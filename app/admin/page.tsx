@@ -67,7 +67,7 @@ export default async function AdminPage() {
     if (results[0].status === 'fulfilled') totalUsers = results[0].value
     if (results[1].status === 'fulfilled') totalBalance = Number(results[1].value._sum.balance) || 0
     if (results[2].status === 'fulfilled') {
-      recentTransactions = results[2].value.map((t) => ({
+      recentTransactions = results[2].value.map((t: any) => ({
         id: t.id,
         amount: Number(t.amount),
         type: t.type,
