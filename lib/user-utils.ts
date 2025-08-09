@@ -1,7 +1,16 @@
 import { db } from '@/lib/db'
 import { generateAccountNumber } from '@/lib/account-utils'
 
-export async function ensureUserExists(clerkUser: any) {
+interface ClerkUser {
+  id: string
+  emailAddresses: Array<{ emailAddress: string }>
+  fullName?: string
+  firstName?: string
+  lastName?: string
+  imageUrl?: string
+}
+
+export async function ensureUserExists(clerkUser: ClerkUser) {
   try {
     // Check if user exists
     let dbUser = await db.user.findUnique({
@@ -12,7 +21,6 @@ export async function ensureUserExists(clerkUser: any) {
     if (!dbUser) {
       const email = clerkUser.emailAddresses[0]?.emailAddress || ''
       const country = email.includes('.ke') || email.includes('kenya') ? 'KENYA' : 'UK'
-      const currency = country === 'UK' ? 'GBP' : 'KES'
       const accountNumber = generateAccountNumber(country)
 
       // Create user with account

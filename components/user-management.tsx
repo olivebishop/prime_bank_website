@@ -6,11 +6,11 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { formatCurrency } from "@/lib/account-utils"
-import { IconEdit, IconTrash, IconUsers, IconPlus, IconMinus } from "@tabler/icons-react"
+import { IconEdit, IconTrash, IconUsers } from "@tabler/icons-react"
 import { toast } from "sonner"
 
 interface User {
@@ -50,7 +50,7 @@ export function UserManagement() {
       } else {
         toast.error('Failed to fetch users')
       }
-    } catch (error) {
+    } catch {
       toast.error('Error fetching users')
     } finally {
       setLoading(false)
@@ -69,7 +69,7 @@ export function UserManagement() {
       } else {
         toast.error('Failed to delete user')
       }
-    } catch (error) {
+    } catch {
       toast.error('Error deleting user')
     }
   }
@@ -100,7 +100,7 @@ export function UserManagement() {
       } else {
         toast.error('Failed to update balance')
       }
-    } catch (error) {
+    } catch {
       toast.error('Error updating balance')
     }
   }

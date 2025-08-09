@@ -30,8 +30,6 @@ export function generateAccountNumber(country: 'UK' | 'KENYA'): string {
 }
 
 export function validateAccountNumber(accountNumber: string, country: 'UK' | 'KENYA'): boolean {
-  const format = ACCOUNT_FORMATS[country];
-  
   if (country === 'UK') {
     return /^PB\d{8}$/.test(accountNumber);
   } else {
