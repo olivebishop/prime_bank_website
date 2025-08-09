@@ -111,7 +111,7 @@ export function AppSidebar({ userRole = 'USER', ...props }: AppSidebarProps) {
             >
               <a href="/dashboard">
                 <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Prime Bank</span>
+                <span className="text-base font-semibold">Prime Connect</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>

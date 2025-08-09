@@ -55,7 +55,7 @@ export async function POST(req: Request) {
       // Determine country based on email domain or default to UK
       const email = email_addresses[0]?.email_address || ''
       const country = email.includes('.ke') || email.includes('kenya') ? 'KENYA' : 'UK'
-      const currency = country === 'UK' ? 'GBP' : 'KES'
+      // Removed unused currency variable - add back if needed for future features
 
       // Create user in database
       const user = await db.user.create({

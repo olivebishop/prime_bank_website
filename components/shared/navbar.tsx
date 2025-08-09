@@ -222,7 +222,7 @@ const Navbar = () => {
             >
               <div className="flex items-baseline">
                 <span className="text-xl sm:text-2xl font-black text-black tracking-tight whitespace-nowrap">Prime</span>
-                <span className="text-lg sm:text-xl font-black text-black ml-1 whitespace-nowrap">Bank</span>
+                <span className="text-lg sm:text-xl font-black text-black ml-1 whitespace-nowrap">Connect</span>
               </div>
             </Link>
 
@@ -361,7 +361,7 @@ const Navbar = () => {
                     {activeDropdown === "personal" ? "Personal Banking"
                       : activeDropdown === "business" ? "Business Banking"
                         : activeDropdown === "services" ? "Our Services"
-                          : "About Prime Bank"}
+                          : "About Prime Connect"}
                   </h3>
                   <p className="text-sm text-gray-600">
                     {activeDropdown === "personal"

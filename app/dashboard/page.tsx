@@ -13,7 +13,7 @@ export default async function DashboardPage() {
   }
 
   // Ensure user exists in database
-  const dbUser = await ensureUserExists(user)
+  const dbUser = await ensureUserExists(user as any)
 
   // Get recent transactions separately
   const recentTransactions = dbUser?.account ? await db.transaction.findMany({

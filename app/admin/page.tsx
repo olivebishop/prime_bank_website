@@ -22,8 +22,23 @@ export default async function AdminPage() {
   // Get admin statistics with error handling
   let totalUsers = 0
   let totalBalance: number = 0
-  let recentTransactions: any[] = []
-  let recentLogs: any[] = []
+  let recentTransactions: Array<{
+    id: string
+    amount: number
+    type: string
+    description: string | null
+    createdAt: Date
+    adminName: string | null
+    sender?: { user: { email: string } } | null
+    receiver?: { user: { email: string } } | null
+  }> = []
+  let recentLogs: Array<{
+    id: string
+    adminName: string
+    action: string
+    targetUserEmail: string | null
+    createdAt: Date
+  }> = []
 
   try {
     const results = await Promise.allSettled([
@@ -51,8 +66,25 @@ export default async function AdminPage() {
 
     if (results[0].status === 'fulfilled') totalUsers = results[0].value
     if (results[1].status === 'fulfilled') totalBalance = Number(results[1].value._sum.balance) || 0
-    if (results[2].status === 'fulfilled') recentTransactions = results[2].value
-    if (results[3].status === 'fulfilled') recentLogs = (results[3].value as any[]) || []
+    if (results[2].status === 'fulfilled') {
+      recentTransactions = results[2].value.map((t) => ({
+        id: t.id,
+        amount: Number(t.amount),
+        type: t.type,
+        description: t.description,
+        createdAt: t.createdAt,
+        adminName: t.adminName,
+        sender: t.sender ? { user: { email: t.sender.user.email } } : null,
+        receiver: t.receiver ? { user: { email: t.receiver.user.email } } : null
+      }))
+    }
+    if (results[3].status === 'fulfilled') recentLogs = (results[3].value as Array<{
+      id: string
+      adminName: string
+      action: string
+      targetUserEmail: string | null
+      createdAt: Date
+    }>) || []
   } catch (error) {
     console.error('Error fetching admin data:', error)
     // Continue with default values

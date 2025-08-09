@@ -2,6 +2,15 @@ import { NextResponse } from 'next/server'
 import { currentUser } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 
+// Define proper type for admin logs
+interface AdminLog {
+  id: string
+  adminName: string
+  action: string
+  targetUserEmail: string | null
+  createdAt: Date
+}
+
 export async function GET() {
   try {
     const user = await currentUser()
@@ -20,14 +29,14 @@ export async function GET() {
     }
 
     // Get admin logs with error handling
-    let logs: any[] = []
+    let logs: AdminLog[] = []
     try {
       // Try to query admin logs directly
       logs = await db.$queryRaw`
         SELECT * FROM admin_logs 
         ORDER BY "createdAt" DESC 
         LIMIT 100
-      `
+      ` as AdminLog[]
     } catch (error) {
       console.error('Admin logs table not found or accessible:', error)
       // Return empty array if table doesn't exist
