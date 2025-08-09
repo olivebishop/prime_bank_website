@@ -91,29 +91,29 @@ export default async function AccountPage() {
                         <label className="text-sm font-medium text-muted-foreground">Account Number</label>
                         <p className="text-lg font-mono font-semibold">{account.accountNumber}</p>
                       </div>
-                      
+
                       {sortCode && (
                         <div>
                           <label className="text-sm font-medium text-muted-foreground">Sort Code</label>
                           <p className="text-lg font-mono font-semibold">{sortCode}</p>
                         </div>
                       )}
-                      
+
                       <div>
                         <label className="text-sm font-medium text-muted-foreground">Account Type</label>
                         <p className="text-lg">{account.accountType}</p>
                       </div>
-                      
+
                       <div>
                         <label className="text-sm font-medium text-muted-foreground">Currency</label>
                         <p className="text-lg">{account.currency}</p>
                       </div>
-                      
+
                       <div>
                         <label className="text-sm font-medium text-muted-foreground">Country</label>
                         <p className="text-lg">{account.country}</p>
                       </div>
-                      
+
                       <div>
                         <label className="text-sm font-medium text-muted-foreground">Status</label>
                         <Badge variant={account.status === 'ACTIVE' ? 'default' : 'secondary'}>
@@ -137,19 +137,19 @@ export default async function AccountPage() {
                           {formatCurrency(balance, currency)}
                         </p>
                       </div>
-                      
+
                       <div>
                         <label className="text-sm font-medium text-muted-foreground">Account Opened</label>
                         <p className="text-lg">
                           {new Date(account.createdAt).toLocaleDateString()}
                         </p>
                       </div>
-                      
+
                       <div>
                         <label className="text-sm font-medium text-muted-foreground">Account Holder</label>
                         <p className="text-lg">{dbUser.name || 'Not provided'}</p>
                       </div>
-                      
+
                       <div>
                         <label className="text-sm font-medium text-muted-foreground">Email</label>
                         <p className="text-lg">{dbUser.email}</p>

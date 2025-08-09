@@ -13,10 +13,10 @@ export default async function DashboardPage() {
   }
 
   // Ensure user exists in database
-  const dbUser = await ensureUserExists(user as any)
+  const dbUser = await ensureUserExists({ ...(user as any), fullName: user.fullName ?? undefined } as Parameters<typeof ensureUserExists>[0])
 
   // Get recent transactions separately
-  const recentTransactions = dbUser?.account ? await db.transaction.findMany({
+  const rawTransactions = dbUser?.account ? await db.transaction.findMany({
     where: {
       OR: [
         { senderId: dbUser.account.id },
@@ -26,6 +26,16 @@ export default async function DashboardPage() {
     orderBy: { createdAt: 'desc' },
     take: 5
   }) : []
+
+  // Convert transactions to proper format
+  const recentTransactions = rawTransactions.map(t => ({
+    id: t.id,
+    amount: Number(t.amount),
+    type: t.type,
+    description: t.description,
+    createdAt: t.createdAt,
+    adminName: t.adminName
+  }))
 
   return (
     <DashboardLayout userRole={dbUser.role}>

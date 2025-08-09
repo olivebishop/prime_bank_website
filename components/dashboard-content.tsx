@@ -6,6 +6,7 @@ import { formatCurrency, getSortCode } from "@/lib/account-utils"
 import { IconCreditCard, IconEye, IconEyeOff, IconTrendingUp, IconWallet } from "@tabler/icons-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { Decimal } from "@prisma/client/runtime/library"
 
 interface User {
   id: string
@@ -16,16 +17,16 @@ interface User {
 
 interface Account {
   id: string
-  balance: number | string  // Fixed: replaced 'any' with specific types
+  balance: number | string | Decimal // Explicitly include Decimal type
   accountNumber: string
-  currency: string
-  country: string
-  status: string
+  currency?: string
+  country?: string
+  status?: string
 }
 
 interface Transaction {
   id: string
-  amount: number | string  // Fixed: replaced 'any' with specific types
+  amount: number | string | Decimal // Include Decimal for transaction amounts too
   type: string
   description: string | null
   createdAt: Date
@@ -36,6 +37,24 @@ interface DashboardContentProps {
   user: User
   account: Account | null
   recentTransactions: Transaction[]
+}
+
+// Helper function to safely convert various number types to number
+function toNumber(value: number | string | Decimal): number {
+  if (typeof value === 'number') return value
+  if (typeof value === 'string') return parseFloat(value)
+  // Handle Prisma Decimal
+  return Number(value.toString())
+}
+
+// Helper function to determine if transaction is a credit (increases balance)
+function isCredit(transactionType: string): boolean {
+  return ['ADMIN_CREDIT', 'DEPOSIT', 'TRANSFER'].includes(transactionType)
+}
+
+// Helper function to get transaction color
+function getTransactionColor(transactionType: string): string {
+  return isCredit(transactionType) ? 'text-green-600' : 'text-red-600'
 }
 
 export function DashboardContent({ user, account, recentTransactions }: DashboardContentProps) {
@@ -56,9 +75,9 @@ export function DashboardContent({ user, account, recentTransactions }: Dashboar
     )
   }
 
-  const balance = parseFloat(account.balance.toString())
-  const currency = account.currency as 'GBP' | 'KES'
-  const sortCode = getSortCode(account.country as 'UK' | 'KENYA')
+  const balance = toNumber(account.balance)
+  const currency = (account.currency || 'GBP') as 'GBP' | 'KES'
+  const sortCode = getSortCode((account.country || 'UK') as 'UK' | 'KENYA')
 
   return (
     <div className="px-4 lg:px-6 space-y-6">
@@ -83,6 +102,7 @@ export function DashboardContent({ user, account, recentTransactions }: Dashboar
               size="sm"
               onClick={() => setShowBalance(!showBalance)}
               className="h-8 w-8 p-0"
+              aria-label={showBalance ? "Hide balance" : "Show balance"}
             >
               {showBalance ? <IconEyeOff className="h-4 w-4" /> : <IconEye className="h-4 w-4" />}
             </Button>
@@ -123,12 +143,12 @@ export function DashboardContent({ user, account, recentTransactions }: Dashboar
           </CardHeader>
           <CardContent>
             <div className="flex items-center space-x-2">
-              <Badge variant={account.status === 'ACTIVE' ? 'default' : 'secondary'}>
-                {account.status}
+              <Badge variant={(account.status || 'ACTIVE') === 'ACTIVE' ? 'default' : 'secondary'}>
+                {account.status || 'ACTIVE'}
               </Badge>
             </div>
             <p className="text-xs text-muted-foreground mt-1">
-              {account.country} • {account.currency}
+              {account.country || 'UK'} • {account.currency || 'GBP'}
             </p>
           </CardContent>
         </Card>
@@ -152,43 +172,40 @@ export function DashboardContent({ user, account, recentTransactions }: Dashboar
             </p>
           ) : (
             <div className="space-y-4">
-              {recentTransactions.map((transaction) => (
-                <div key={transaction.id} className="flex items-center justify-between p-4 border rounded-lg">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <Badge variant={
-                        transaction.type === 'ADMIN_CREDIT' || transaction.type === 'DEPOSIT' 
-                          ? 'default' 
-                          : 'secondary'
-                      }>
-                        {transaction.type.replace('_', ' ')}
-                      </Badge>
-                      {transaction.adminName && (
-                        <span className="text-xs text-muted-foreground">
-                          by {transaction.adminName}
-                        </span>
-                      )}
+              {recentTransactions.map((transaction) => {
+                const transactionAmount = toNumber(transaction.amount)
+                const isCreditTransaction = isCredit(transaction.type)
+                
+                return (
+                  <div key={transaction.id} className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <Badge variant={isCreditTransaction ? 'default' : 'secondary'}>
+                          {transaction.type.replace('_', ' ')}
+                        </Badge>
+                        {transaction.adminName && (
+                          <span className="text-xs text-muted-foreground">
+                            by {transaction.adminName}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {transaction.description || 'No description'}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {new Date(transaction.createdAt).toLocaleDateString()} at{' '}
+                        {new Date(transaction.createdAt).toLocaleTimeString()}
+                      </p>
                     </div>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {transaction.description || 'No description'}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {new Date(transaction.createdAt).toLocaleDateString()} at{' '}
-                      {new Date(transaction.createdAt).toLocaleTimeString()}
-                    </p>
+                    <div className="text-right">
+                      <p className={`font-semibold ${getTransactionColor(transaction.type)}`}>
+                        {isCreditTransaction ? '+' : '-'}
+                        {formatCurrency(transactionAmount, currency)}
+                      </p>
+                    </div>
                   </div>
-                  <div className="text-right">
-                    <p className={`font-semibold ${
-                      transaction.type === 'ADMIN_CREDIT' || transaction.type === 'DEPOSIT'
-                        ? 'text-green-600'
-                        : 'text-red-600'
-                    }`}>
-                      {transaction.type === 'ADMIN_CREDIT' || transaction.type === 'DEPOSIT' ? '+' : '-'}
-                      {formatCurrency(parseFloat(transaction.amount.toString()), currency)}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           )}
         </CardContent>

@@ -6,7 +6,7 @@ import { AdminDashboardContent } from "@/components/admin-dashboard-content"
 
 export default async function AdminPage() {
   const user = await currentUser()
-  
+
   if (!user) {
     redirect("/sign-in")
   }
@@ -92,7 +92,7 @@ export default async function AdminPage() {
 
   return (
     <DashboardLayout userRole="ADMIN">
-      <AdminDashboardContent 
+      <AdminDashboardContent
         totalUsers={totalUsers}
         totalBalance={totalBalance}
         recentTransactions={recentTransactions}
