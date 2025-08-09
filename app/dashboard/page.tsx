@@ -12,8 +12,11 @@ export default async function DashboardPage() {
     redirect("/sign-in")
   }
 
-  // Ensure user exists in database
-  const dbUser = await ensureUserExists({ ...(user as any), fullName: user.fullName ?? undefined } as Parameters<typeof ensureUserExists>[0])
+  // Ensure user exists in database - removed 'as any' and simplified the type casting
+  const dbUser = await ensureUserExists({
+    ...user,
+    fullName: user.fullName ?? undefined
+  } as Parameters<typeof ensureUserExists>[0])
 
   // Get recent transactions separately
   const rawTransactions = dbUser?.account ? await db.transaction.findMany({
