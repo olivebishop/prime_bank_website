@@ -1,0 +1,116 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String   @id @default(cuid())
+  clerkId       String   @unique  // Add Clerk ID for integration
+  email         String   @unique
+  name          String?
+  role          Role     @default(USER)
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Banking fields
+  account       Account?
+
+  @@map("users")
+}
+
+model Account {
+  id            String  @id @default(cuid())
+  userId        String  @unique
+  user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Banking fields
+  balance       Decimal @default(0.00) @db.Decimal(15, 2)
+  accountNumber String  @unique
+  accountType   String  @default("CURRENT") // CURRENT, SAVINGS
+  currency      String  @default("GBP") // GBP, KES
+  country       String  @default("UK") // UK, KENYA
+  status        AccountStatus @default(ACTIVE)
+
+  // Transaction history
+  sentTransactions     Transaction[] @relation("SenderAccount")
+  receivedTransactions Transaction[] @relation("ReceiverAccount")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("accounts")
+}
+
+model Transaction {
+  id          String          @id @default(cuid())
+  amount      Decimal         @db.Decimal(15, 2)
+  type        TransactionType
+  description String?
+  reference   String?         // Transaction reference number
+  status      TransactionStatus @default(COMPLETED)
+
+  // Sender (for transfers and withdrawals)
+  senderId    String?
+  sender      Account?        @relation("SenderAccount", fields: [senderId], references: [id])
+
+  // Receiver (for transfers and deposits)
+  receiverId  String?
+  receiver    Account?        @relation("ReceiverAccount", fields: [receiverId], references: [id])
+
+  // Admin who performed the transaction
+  adminId     String?
+  adminName   String?
+
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@map("transactions")
+}
+
+model AdminLog {
+  id          String   @id @default(cuid())
+  adminId     String
+  adminName   String
+  action      String   // CREATE_USER, UPDATE_BALANCE, DELETE_USER, etc.
+  targetUserId String?
+  targetUserEmail String?
+  details     String?  // JSON string with additional details
+  ipAddress   String?
+  userAgent   String?
+  createdAt   DateTime @default(now())
+
+  @@map("admin_logs")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  TRANSFER
+  ADMIN_CREDIT
+  ADMIN_DEBIT
+}
+
+enum TransactionStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum AccountStatus {
+  ACTIVE
+  SUSPENDED
+  CLOSED
+}
