@@ -21,7 +21,7 @@ export default async function AdminPage() {
 
   // Get admin statistics with error handling
   let totalUsers = 0
-  let totalBalance = { _sum: { balance: 0 } }
+  let totalBalance: number = 0
   let recentTransactions: any[] = []
   let recentLogs: any[] = []
 
@@ -50,9 +50,9 @@ export default async function AdminPage() {
     ])
 
     if (results[0].status === 'fulfilled') totalUsers = results[0].value
-    if (results[1].status === 'fulfilled') totalBalance = results[1].value
+    if (results[1].status === 'fulfilled') totalBalance = Number(results[1].value._sum.balance) || 0
     if (results[2].status === 'fulfilled') recentTransactions = results[2].value
-    if (results[3].status === 'fulfilled') recentLogs = results[3].value || []
+    if (results[3].status === 'fulfilled') recentLogs = (results[3].value as any[]) || []
   } catch (error) {
     console.error('Error fetching admin data:', error)
     // Continue with default values
@@ -62,7 +62,7 @@ export default async function AdminPage() {
     <DashboardLayout userRole="ADMIN">
       <AdminDashboardContent 
         totalUsers={totalUsers}
-        totalBalance={totalBalance._sum.balance || 0}
+        totalBalance={totalBalance}
         recentTransactions={recentTransactions}
         recentLogs={recentLogs}
       />

@@ -79,7 +79,9 @@ export function AppSidebar({ userRole = 'USER', ...props }: AppSidebarProps) {
   ]
 
   const handleSignOut = () => {
-    signOut(() => window.location.href = '/')
+    signOut(() => {
+      window.location.href = '/'
+    })
   }
 
   const navSecondary = [
