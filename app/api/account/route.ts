@@ -1,84 +1,58 @@
-// app/api/account/route.ts
-import { NextRequest, NextResponse } from "next/server"
-import { PrismaClient } from "@prisma/client"
-import { auth } from "@/lib/auth"
-import { headers } from "next/headers"
+import { NextResponse } from "next/server"
+import { currentUser } from "@clerk/nextjs/server"
+import { db } from "@/lib/db"
 
-const prisma = new PrismaClient()
-
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
-    const session = await auth.api.getSession({
-      headers: await headers()
-    })
+    const user = await currentUser()
 
-    if (!session) {
+    if (!user) {
       return NextResponse.json(
         { error: "Unauthorized" },
         { status: 401 }
       )
     }
 
-    const account = await prisma.account.findUnique({
-      where: { userId: session.user.id },
+    // Get user from database
+    const dbUser = await db.user.findUnique({
+      where: { clerkId: user.id },
       include: {
-        user: {
-          select: {
-            name: true,
-            email: true
+        account: {
+          include: {
+            sentTransactions: {
+              orderBy: { createdAt: 'desc' },
+              take: 20
+            },
+            receivedTransactions: {
+              orderBy: { createdAt: 'desc' },
+              take: 20
+            }
           }
         }
       }
     })
 
-    if (!account) {
-      // Create account if it doesn't exist
-      const newAccount = await prisma.account.create({
-        data: {
-          userId: session.user.id,
-          balance: 0.00
-        }
-      })
-
-      return NextResponse.json({
-        account: newAccount,
-        transactions: []
-      })
+    if (!dbUser) {
+      return NextResponse.json(
+        { error: "User not found" },
+        { status: 404 }
+      )
     }
 
-    // Get recent transactions
-    const transactions = await prisma.transaction.findMany({
-      where: {
-        OR: [
-          { senderId: account.id },
-          { receiverId: account.id }
-        ]
-      },
-      include: {
-        sender: {
-          include: {
-            user: {
-              select: { name: true }
-            }
-          }
-        },
-        receiver: {
-          include: {
-            user: {
-              select: { name: true }
-            }
-          }
-        }
-      },
-      orderBy: {
-        createdAt: 'desc'
-      },
-      take: 20
-    })
+    // Combine and sort transactions
+    const allTransactions = dbUser.account ? [
+      ...dbUser.account.sentTransactions,
+      ...dbUser.account.receivedTransactions
+    ].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()) : []
 
     return NextResponse.json({
-      account,
-      transactions
+      user: {
+        name: dbUser.name,
+        email: dbUser.email,
+        role: dbUser.role
+      },
+      account: dbUser.account,
+      transactions: allTransactions
     })
 
   } catch (error) {
