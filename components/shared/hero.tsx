@@ -64,7 +64,7 @@ const PrimeBankHero = () => {
                     <div className="w-16 h-0.5 bg-gradient-to-r from-gray-50 to-gray-200 mt-6 rounded-full animate-slideInLeft" />
                     <div className="space-y-6 max-w-2xl">
                       <p className="text-lg sm:text-xl lg:text-2xl text-gray-100 font-light leading-relaxed">
-                        Experience seamless UK banking with Prime Bank — secure, smart, and designed to grow your wealth.
+                        Experience seamless UK banking with Prime Connect — secure, smart, and designed to grow your wealth.
                       </p>
                       <div className="flex items-center gap-3 text-gray-50 font-semibold animate-slideInLeft" style={{ animationDelay: '0.5s' }}>
                         <Shield className="w-5 h-5" />
@@ -104,7 +104,7 @@ const PrimeBankHero = () => {
                       {/* Card Content */}
                       <div className="relative z-10 h-full flex flex-col justify-between">
                         <div className="flex justify-between items-start">
-                          <div className="text-white font-medium text-base">Prime Bank UK</div>
+                          <div className="text-white font-medium text-base">Prime Connect</div>
                           <div className="w-10 h-7 bg-gradient-to-r from-gray-50 to-gray-100 rounded flex items-center justify-center">
                             <span className="text-sm font-bold text-black">£</span>
                           </div>
@@ -117,7 +117,7 @@ const PrimeBankHero = () => {
                               <div className="text-gray-200 text-xs uppercase tracking-wide">Valid Thru</div>
                               <div className="text-gray-50 font-medium text-base">12/28</div>
                             </div>
-                            <div className="text-white font-bold text-xl">PRIME</div>
+                            <div className="text-white font-bold text-xl">PRIME </div>
                           </div>
                         </div>
                       </div>

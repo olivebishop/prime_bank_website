@@ -98,7 +98,7 @@ const CareersPage = () => {
           {/* Why Work With Us */}
           <div className="mb-20">
             <h2 className="text-2xl md:text-3xl font-bold text-black text-center mb-12 leading-tight">
-              Why Work <span className="text-gray-800">With Prime Bank?</span>
+              Why Work <span className="text-gray-800">With Prime Connect?</span>
             </h2>
             
             <div className="grid lg:grid-cols-2 gap-6">

@@ -1,10 +1,18 @@
+import { currentUser } from "@clerk/nextjs/server"
+import { redirect } from "next/navigation"
 import PrimeBankHero from "@/components/shared/hero"
 import ServicesSection from "@/components/shared/service"
 import WhyPrimeBank from "@/components/shared/whyChooseUs"
 import CTASection from "@/components/shared/cta"
 
+async function page() {
+  const user = await currentUser()
+  
+  // Redirect authenticated users to dashboard
+  if (user) {
+    redirect("/dashboard")
+  }
 
-function page() {
   return (
     <main className="min-h-screen bg-white relative">
       {/* Ensure consistent background coverage */}
@@ -15,7 +23,6 @@ function page() {
       <ServicesSection />
       <WhyPrimeBank/>
       <CTASection/>
-
     </main>
   )
 }

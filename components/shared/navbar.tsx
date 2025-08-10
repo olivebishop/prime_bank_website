@@ -12,12 +12,12 @@ const XIcon = ({ className }: { className?: string }) => (
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 );
 
 const GrainOverlay = () => (
-  <div 
+  <div
     className="absolute inset-0 opacity-[0.15] pointer-events-none"
     style={{
       backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
@@ -161,7 +161,7 @@ const Navbar = () => {
     <>
       {/* Top Bar */}
       <div className="bg-black text-white py-3 text-sm relative overflow-hidden">
-        <GrainOverlay/>
+        <GrainOverlay />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
@@ -210,20 +210,19 @@ const Navbar = () => {
 
       {/* Main Navigation */}
       <header
-        className={`sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur transition-all duration-300 ${
-          scrolled ? "shadow-sm" : ""
-        }`}
+        className={`sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur transition-all duration-300 ${scrolled ? "shadow-sm" : ""
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
-            <Link 
+            <Link
               href="/"
               className="flex items-center gap-3 cursor-pointer flex-shrink-0 hover:scale-105 transition-transform duration-200"
             >
               <div className="flex items-baseline">
                 <span className="text-xl sm:text-2xl font-black text-black tracking-tight whitespace-nowrap">Prime</span>
-                <span className="text-lg sm:text-xl font-black text-black ml-1 whitespace-nowrap">Bank</span>
+                <span className="text-lg sm:text-xl font-black text-black ml-1 whitespace-nowrap">Connect</span>
               </div>
             </Link>
 
@@ -231,86 +230,78 @@ const Navbar = () => {
             <nav className="hidden lg:flex items-center justify-center flex-1 px-8">
               <div className="flex items-center gap-1 xl:gap-2">
                 {/* Personal Banking Dropdown */}
-                <div 
+                <div
                   className="relative"
                   onMouseEnter={() => handleMouseEnter("personal")}
                   onMouseLeave={handleMouseLeave}
                 >
                   <button
-                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${
-                      activeDropdown === "personal" 
-                        ? "text-black bg-gray-100" 
-                        : "text-gray-700 hover:text-black hover:bg-gray-50"
-                    }`}
+                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${activeDropdown === "personal"
+                      ? "text-black bg-gray-100"
+                      : "text-gray-700 hover:text-black hover:bg-gray-50"
+                      }`}
                   >
                     <User className="w-4 h-4 flex-shrink-0" />
                     Personal
-                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
-                      activeDropdown === "personal" ? "rotate-180" : ""
-                    }`} />
+                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === "personal" ? "rotate-180" : ""
+                      }`} />
                   </button>
                 </div>
 
                 {/* Business Banking Dropdown */}
-                <div 
+                <div
                   className="relative"
                   onMouseEnter={() => handleMouseEnter("business")}
                   onMouseLeave={handleMouseLeave}
                 >
                   <button
-                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${
-                      activeDropdown === "business" 
-                        ? "text-black bg-gray-100" 
-                        : "text-gray-700 hover:text-black hover:bg-gray-50"
-                    }`}
+                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${activeDropdown === "business"
+                      ? "text-black bg-gray-100"
+                      : "text-gray-700 hover:text-black hover:bg-gray-50"
+                      }`}
                   >
                     <Building2 className="w-4 h-4 flex-shrink-0" />
                     Business
-                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
-                      activeDropdown === "business" ? "rotate-180" : ""
-                    }`} />
+                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === "business" ? "rotate-180" : ""
+                      }`} />
                   </button>
                 </div>
 
                 {/* Services Dropdown */}
-                <div 
+                <div
                   className="relative"
                   onMouseEnter={() => handleMouseEnter("services")}
                   onMouseLeave={handleMouseLeave}
                 >
                   <button
-                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${
-                      activeDropdown === "services" 
-                        ? "text-black bg-gray-100" 
-                        : "text-gray-700 hover:text-black hover:bg-gray-50"
-                    }`}
+                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${activeDropdown === "services"
+                      ? "text-black bg-gray-100"
+                      : "text-gray-700 hover:text-black hover:bg-gray-50"
+                      }`}
                   >
                     <Briefcase className="w-4 h-4 flex-shrink-0" />
                     Services
-                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
-                      activeDropdown === "services" ? "rotate-180" : ""
-                    }`} />
+                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""
+                      }`} />
                   </button>
                 </div>
 
                 {/* About Dropdown */}
-                <div 
+                <div
                   className="relative"
                   onMouseEnter={() => handleMouseEnter("about")}
                   onMouseLeave={handleMouseLeave}
                 >
                   <button
-                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${
-                      activeDropdown === "about" 
-                        ? "text-black bg-gray-100" 
-                        : "text-gray-700 hover:text-black hover:bg-gray-50"
-                    }`}
+                    className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${activeDropdown === "about"
+                      ? "text-black bg-gray-100"
+                      : "text-gray-700 hover:text-black hover:bg-gray-50"
+                      }`}
                   >
                     <Home className="w-4 h-4 flex-shrink-0" />
                     About
-                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
-                      activeDropdown === "about" ? "rotate-180" : ""
-                    }`} />
+                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === "about" ? "rotate-180" : ""
+                      }`} />
                   </button>
                 </div>
               </div>
@@ -319,16 +310,19 @@ const Navbar = () => {
             {/* Right Side Actions */}
             <div className="flex items-center gap-3 flex-shrink-0">
               <Link
-                href="/login"
+                href="/sign-in"
                 className="hidden lg:block px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer"
               >
                 Login
               </Link>
-              
-              <button className="hidden lg:flex bg-black text-white px-6 py-2.5 rounded-md text-sm xl:text-base font-medium hover:bg-gray-800 hover:scale-105 transition-all duration-200 items-center gap-2 whitespace-nowrap cursor-pointer">
+
+              <Link
+                href="/sign-up"
+                className="hidden lg:flex bg-black text-white px-6 py-2.5 rounded-md text-sm xl:text-base font-medium hover:bg-gray-800 hover:scale-105 transition-all duration-200 items-center gap-2 whitespace-nowrap cursor-pointer"
+              >
                 <span>Open Account</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -350,7 +344,7 @@ const Navbar = () => {
             onMouseLeave={handleDropdownMouseLeave}
           >
             <GrainOverlay />
-            
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
               {/* Section Header */}
               <div className="flex items-center gap-3 mb-8 pb-4 border-b border-gray-200">
@@ -367,32 +361,31 @@ const Navbar = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-black">
-                    {activeDropdown === "personal" ? "Personal Banking" 
-                     : activeDropdown === "business" ? "Business Banking"
-                     : activeDropdown === "services" ? "Our Services"
-                     : "About Prime Bank"}
+                    {activeDropdown === "personal" ? "Personal Banking"
+                      : activeDropdown === "business" ? "Business Banking"
+                        : activeDropdown === "services" ? "Our Services"
+                          : "About Prime Connect"}
                   </h3>
                   <p className="text-sm text-gray-600">
-                    {activeDropdown === "personal" 
-                      ? "Banking solutions for your personal financial needs" 
+                    {activeDropdown === "personal"
+                      ? "Banking solutions for your personal financial needs"
                       : activeDropdown === "business"
-                      ? "Professional banking services for your business"
-                      : activeDropdown === "services"
-                      ? "Comprehensive financial services and products"
-                      : "Learn more about us and get in touch"
+                        ? "Professional banking services for your business"
+                        : activeDropdown === "services"
+                          ? "Comprehensive financial services and products"
+                          : "Learn more about us and get in touch"
                     }
                   </p>
                 </div>
               </div>
 
               {/* Menu Items Grid */}
-              <div className={`grid grid-cols-1 ${
-                activeDropdown === "about" ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-4"
-              } gap-6`}>
-                {(activeDropdown === "personal" ? personalBankingItems 
+              <div className={`grid grid-cols-1 ${activeDropdown === "about" ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-4"
+                } gap-6`}>
+                {(activeDropdown === "personal" ? personalBankingItems
                   : activeDropdown === "business" ? businessBankingItems
-                  : activeDropdown === "services" ? servicesItems
-                  : aboutItems
+                    : activeDropdown === "services" ? servicesItems
+                      : aboutItems
                 ).map((item) => (
                   <Link
                     key={item.title}
@@ -418,7 +411,7 @@ const Navbar = () => {
         {isOpen && (
           <div className="lg:hidden border-t bg-white relative overflow-hidden animate-slideDown">
             <GrainOverlay />
-            
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-2 relative z-10">
               {/* Mobile Personal Banking */}
               <div className="border-b border-gray-200 pb-4">
@@ -431,9 +424,8 @@ const Navbar = () => {
                     Personal Banking
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 transition-transform ${
-                      activeDropdown === "mobile-personal" ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 transition-transform ${activeDropdown === "mobile-personal" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {activeDropdown === "mobile-personal" && (
@@ -463,9 +455,8 @@ const Navbar = () => {
                     Business Banking
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 transition-transform ${
-                      activeDropdown === "mobile-business" ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 transition-transform ${activeDropdown === "mobile-business" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {activeDropdown === "mobile-business" && (
@@ -495,9 +486,8 @@ const Navbar = () => {
                     Services
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 transition-transform ${
-                      activeDropdown === "mobile-services" ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 transition-transform ${activeDropdown === "mobile-services" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {activeDropdown === "mobile-services" && (
@@ -527,9 +517,8 @@ const Navbar = () => {
                     About
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 transition-transform ${
-                      activeDropdown === "mobile-about" ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 transition-transform ${activeDropdown === "mobile-about" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {activeDropdown === "mobile-about" && (
@@ -551,19 +540,20 @@ const Navbar = () => {
               {/* Mobile CTA */}
               <div className="pt-6 border-t border-gray-200 space-y-3">
                 <Link
-                  href="/login"
+                  href="/sign-in"
                   className="block w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
                   Login
                 </Link>
-                <button
+                <Link
+                  href="/sign-up"
                   className="w-full bg-black text-white py-3 rounded-md font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>Open Account</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>

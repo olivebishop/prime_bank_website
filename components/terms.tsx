@@ -16,7 +16,7 @@ const TermsAndConditionsPage = () => {
               Terms & <span className="text-gray-800">Conditions</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Please read these terms carefully as they govern your use of Prime Bank services
+              Please read these terms carefully as they govern your use of Prime Connect services
             </p>
             <div className="mt-6 text-sm text-gray-600">
               Last updated: January 2025
@@ -63,7 +63,7 @@ const TermsAndConditionsPage = () => {
                 <div>
                   <h4 className="text-lg font-bold text-white mb-3">1. Eligibility</h4>
                   <p className="text-gray-300 leading-relaxed">
-                    To open an account with Prime Bank, you must be at least 18 years old, have legal capacity to enter into contracts, and provide required identification and documentation. Business accounts require additional verification.
+                    To open an account with Prime Connect, you must be at least 18 years old, have legal capacity to enter into contracts, and provide required identification and documentation. Business accounts require additional verification.
                   </p>
                 </div>
 
@@ -84,7 +84,7 @@ const TermsAndConditionsPage = () => {
                 <div>
                   <h4 className="text-lg font-bold text-white mb-3">4. Liability and Disputes</h4>
                   <p className="text-gray-300 leading-relaxed">
-                    Prime Bank&apos;s liability is limited as set forth in these terms and applicable law. For transaction disputes, please contact us immediately. We will investigate and resolve disputes in accordance with banking regulations and our internal procedures.
+                    Prime Connect&apos;s liability is limited as set forth in these terms and applicable law. For transaction disputes, please contact us immediately. We will investigate and resolve disputes in accordance with banking regulations and our internal procedures.
                   </p>
                 </div>
 

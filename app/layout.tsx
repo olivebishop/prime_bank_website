@@ -5,6 +5,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import Script from 'next/script'
 import './globals.css'
 import { ConsentManagerProvider, CookieBanner, ConsentManagerDialog } from "@c15t/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
 
 // Fix: Add preload and display options to the Inter font
 const inter = Inter({ 
@@ -122,11 +124,6 @@ export const metadata: Metadata = {
   // App-specific
   applicationName: 'Prime Bank',
   referrer: 'origin-when-cross-origin',
-  colorScheme: 'light',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' }
-  ],
   
   // Additional metadata
   manifest: '/manifest.json',
@@ -172,6 +169,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+     <ClerkProvider>
         <html lang="en-GB" suppressHydrationWarning>
           <head>
             {/* Google Analytics 4 - Replace GA_MEASUREMENT_ID with your actual ID */}
@@ -400,6 +398,9 @@ export default function RootLayout({
             
             {children}
             
+            {/* Toast notifications */}
+            <Toaster />
+            
             {/* Vercel Analytics */}
             <Analytics />
             <SpeedInsights />
@@ -407,5 +408,6 @@ export default function RootLayout({
     		</ConsentManagerProvider>
     	</body>
         </html>
+          </ClerkProvider>
       )
 }
