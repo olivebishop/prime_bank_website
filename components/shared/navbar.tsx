@@ -316,10 +316,13 @@ const Navbar = () => {
                 Login
               </Link>
 
-              <button className="hidden lg:flex bg-black text-white px-6 py-2.5 rounded-md text-sm xl:text-base font-medium hover:bg-gray-800 hover:scale-105 transition-all duration-200 items-center gap-2 whitespace-nowrap cursor-pointer">
+              <Link
+                href="/sign-up"
+                className="hidden lg:flex bg-black text-white px-6 py-2.5 rounded-md text-sm xl:text-base font-medium hover:bg-gray-800 hover:scale-105 transition-all duration-200 items-center gap-2 whitespace-nowrap cursor-pointer"
+              >
                 <span>Open Account</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -543,13 +546,14 @@ const Navbar = () => {
                 >
                   Login
                 </Link>
-                <button
+                <Link
+                  href="/sign-up"
                   className="w-full bg-black text-white py-3 rounded-md font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>Open Account</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
