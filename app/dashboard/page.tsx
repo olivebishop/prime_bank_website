@@ -31,7 +31,8 @@ export default async function DashboardPage() {
   }) : []
 
   // Convert transactions to proper format
-  const recentTransactions = rawTransactions.map(t => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const recentTransactions = rawTransactions.map((t: any) => ({
     id: t.id,
     amount: Number(t.amount),
     type: t.type,
