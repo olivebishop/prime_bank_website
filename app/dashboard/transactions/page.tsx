@@ -98,7 +98,8 @@ export default async function TransactionsPage() {
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      {transactions.map((transaction) => (
+                      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                      {transactions.map((transaction: any) => (
                         <div key={transaction.id} className="flex items-center justify-between p-4 border rounded-lg">
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-2">
