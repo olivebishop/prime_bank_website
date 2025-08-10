@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { auth } from "@clerk/nextjs/server"
 import { db } from "@/lib/db"
-import { Prisma } from "@prisma/client"
 
 export async function POST(request: NextRequest) {
   try {
@@ -85,7 +84,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Perform transaction in a database transaction
-    const result = await db.$transaction(async (tx: Prisma.TransactionClient) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const result = await db.$transaction(async (tx: any) => {
       // Update account balance
       const updatedAccount = await tx.account.update({
         where: { id: account.id },
