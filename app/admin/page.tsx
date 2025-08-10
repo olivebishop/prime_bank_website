@@ -4,6 +4,25 @@ import { db } from "@/lib/db"
 import { DashboardLayout } from "@/components/dashboard-layout"
 import { AdminDashboardContent } from "@/components/admin-dashboard-content"
 
+type TransactionWithIncludes = {
+  id: string
+  amount: number | bigint
+  type: string
+  description: string | null
+  createdAt: Date
+  adminName: string | null
+  sender: {
+    user: {
+      email: string
+    }
+  } | null
+  receiver: {
+    user: {
+      email: string
+    }
+  } | null
+}
+
 export default async function AdminPage() {
   const user = await currentUser()
 
@@ -67,7 +86,7 @@ export default async function AdminPage() {
     if (results[0].status === 'fulfilled') totalUsers = results[0].value
     if (results[1].status === 'fulfilled') totalBalance = Number(results[1].value._sum.balance) || 0
     if (results[2].status === 'fulfilled') {
-      recentTransactions = results[2].value.map((t: any) => ({
+      recentTransactions = (results[2].value as unknown as TransactionWithIncludes[]).map((t) => ({
         id: t.id,
         amount: Number(t.amount),
         type: t.type,
