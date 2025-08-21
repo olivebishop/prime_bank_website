@@ -117,7 +117,7 @@ const PrimeBankHero = () => {
                               <div className="text-gray-200 text-xs uppercase tracking-wide">Valid Thru</div>
                               <div className="text-gray-50 font-medium text-base">12/28</div>
                             </div>
-                            <div className="text-white font-bold text-xl">PRIME</div>
+                            <div className="text-white font-bold text-xl">PRIME </div>
                           </div>
                         </div>
                       </div>

@@ -12,12 +12,12 @@ const XIcon = ({ className }: { className?: string }) => (
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 );
 
 const GrainOverlay = () => (
-  <div 
+  <div
     className="absolute inset-0 opacity-[0.15] pointer-events-none"
     style={{
       backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
@@ -210,14 +210,13 @@ const Navbar = () => {
 
       {/* Main Navigation */}
       <header
-        className={`sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur transition-all duration-300 ${
-          scrolled ? "shadow-sm" : ""
-        }`}
+        className={`sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur transition-all duration-300 ${scrolled ? "shadow-sm" : ""
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
-            <Link 
+            <Link
               href="/"
               className="flex items-center gap-3 cursor-pointer flex-shrink-0 hover:scale-105 transition-transform duration-200"
             >
@@ -232,7 +231,7 @@ const Navbar = () => {
             <nav className="hidden lg:flex items-center justify-center flex-1 px-8">
               <div className="flex items-center gap-1 xl:gap-2">
                 {/* Personal Banking Dropdown */}
-                <div 
+                <div
                   className="relative"
                   onMouseEnter={() => handleMouseEnter("personal")}
                   onMouseLeave={handleMouseLeave}
@@ -246,14 +245,13 @@ const Navbar = () => {
                   >
                     <User className="w-4 h-4 flex-shrink-0" />
                     Personal
-                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
-                      activeDropdown === "personal" ? "rotate-180" : ""
-                    }`} />
+                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === "personal" ? "rotate-180" : ""
+                      }`} />
                   </button>
                 </div>
 
                 {/* Business Banking Dropdown */}
-                <div 
+                <div
                   className="relative"
                   onMouseEnter={() => handleMouseEnter("business")}
                   onMouseLeave={handleMouseLeave}
@@ -267,14 +265,13 @@ const Navbar = () => {
                   >
                     <Building2 className="w-4 h-4 flex-shrink-0" />
                     Business
-                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
-                      activeDropdown === "business" ? "rotate-180" : ""
-                    }`} />
+                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === "business" ? "rotate-180" : ""
+                      }`} />
                   </button>
                 </div>
 
                 {/* Services Dropdown */}
-                <div 
+                <div
                   className="relative"
                   onMouseEnter={() => handleMouseEnter("services")}
                   onMouseLeave={handleMouseLeave}
@@ -288,14 +285,13 @@ const Navbar = () => {
                   >
                     <Briefcase className="w-4 h-4 flex-shrink-0" />
                     Services
-                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
-                      activeDropdown === "services" ? "rotate-180" : ""
-                    }`} />
+                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""
+                      }`} />
                   </button>
                 </div>
 
                 {/* About Dropdown */}
-                <div 
+                <div
                   className="relative"
                   onMouseEnter={() => handleMouseEnter("about")}
                   onMouseLeave={handleMouseLeave}
@@ -309,9 +305,8 @@ const Navbar = () => {
                   >
                     <Home className="w-4 h-4 flex-shrink-0" />
                     About
-                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
-                      activeDropdown === "about" ? "rotate-180" : ""
-                    }`} />
+                    <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === "about" ? "rotate-180" : ""
+                      }`} />
                   </button>
                 </div>
               </div>
@@ -351,7 +346,7 @@ const Navbar = () => {
             onMouseLeave={handleDropdownMouseLeave}
           >
             <GrainOverlay />
-            
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
               {/* Section Header */}
               <div className="flex items-center gap-3 mb-8 pb-4 border-b border-gray-200">
@@ -374,26 +369,25 @@ const Navbar = () => {
                      : "About Prime Bank Connect"}
                   </h3>
                   <p className="text-sm text-gray-600">
-                    {activeDropdown === "personal" 
-                      ? "Banking solutions for your personal financial needs" 
+                    {activeDropdown === "personal"
+                      ? "Banking solutions for your personal financial needs"
                       : activeDropdown === "business"
-                      ? "Professional banking services for your business"
-                      : activeDropdown === "services"
-                      ? "Comprehensive financial services and products"
-                      : "Learn more about us and get in touch"
+                        ? "Professional banking services for your business"
+                        : activeDropdown === "services"
+                          ? "Comprehensive financial services and products"
+                          : "Learn more about us and get in touch"
                     }
                   </p>
                 </div>
               </div>
 
               {/* Menu Items Grid */}
-              <div className={`grid grid-cols-1 ${
-                activeDropdown === "about" ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-4"
-              } gap-6`}>
-                {(activeDropdown === "personal" ? personalBankingItems 
+              <div className={`grid grid-cols-1 ${activeDropdown === "about" ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-4"
+                } gap-6`}>
+                {(activeDropdown === "personal" ? personalBankingItems
                   : activeDropdown === "business" ? businessBankingItems
-                  : activeDropdown === "services" ? servicesItems
-                  : aboutItems
+                    : activeDropdown === "services" ? servicesItems
+                      : aboutItems
                 ).map((item) => (
                   <Link
                     key={item.title}
@@ -419,7 +413,7 @@ const Navbar = () => {
         {isOpen && (
           <div className="lg:hidden border-t bg-white relative overflow-hidden animate-slideDown">
             <GrainOverlay />
-            
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-2 relative z-10">
               {/* Mobile Personal Banking */}
               <div className="border-b border-gray-200 pb-4">
@@ -432,9 +426,8 @@ const Navbar = () => {
                     Personal Banking
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 transition-transform ${
-                      activeDropdown === "mobile-personal" ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 transition-transform ${activeDropdown === "mobile-personal" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {activeDropdown === "mobile-personal" && (
@@ -464,9 +457,8 @@ const Navbar = () => {
                     Business Banking
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 transition-transform ${
-                      activeDropdown === "mobile-business" ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 transition-transform ${activeDropdown === "mobile-business" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {activeDropdown === "mobile-business" && (
@@ -496,9 +488,8 @@ const Navbar = () => {
                     Services
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 transition-transform ${
-                      activeDropdown === "mobile-services" ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 transition-transform ${activeDropdown === "mobile-services" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {activeDropdown === "mobile-services" && (
@@ -528,9 +519,8 @@ const Navbar = () => {
                     About
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 transition-transform ${
-                      activeDropdown === "mobile-about" ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 transition-transform ${activeDropdown === "mobile-about" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {activeDropdown === "mobile-about" && (

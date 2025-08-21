@@ -5,6 +5,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import Script from 'next/script'
 import './globals.css'
 import { ConsentManagerProvider, CookieBanner, ConsentManagerDialog } from "@c15t/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
 
 // Fix: Add preload and display options to the Inter font
 const inter = Inter({ 
@@ -15,7 +17,7 @@ const inter = Inter({
 
 // Replace with your actual domain
 const siteUrl = process.env.NODE_ENV === 'production' 
-  ? 'https://prime-bank-website.vercel.app' 
+  ? 'https://prime-connect-website.vercel.app' 
   : 'http://localhost:3000'
 
 export const metadata: Metadata = {
@@ -172,6 +174,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+     <ClerkProvider>
         <html lang="en-GB" suppressHydrationWarning>
           <head>
             {/* Google Analytics 4 - Replace GA_MEASUREMENT_ID with your actual ID */}
@@ -242,7 +245,7 @@ export default function RootLayout({
                   "logo": `${siteUrl}/logo.png`,
                   "image": `${siteUrl}/og-image.png`,
                   "telephone": ["+44-XXX-XXXXXXX", "+254-XXX-XXXXXX"],
-                  "email": ["info@primebank.co.uk", "info@primebank.co.ke"],
+                  "email": ["info@primeconnect.co.uk", "info@primeconnect.co.ke"],
                   "address": [
                     {
                       "@type": "PostalAddress",
@@ -288,10 +291,10 @@ export default function RootLayout({
                     }
                   ],
                   "sameAs": [
-                    "https://www.facebook.com/primebank",
-                    "https://www.twitter.com/primebank_uk",
-                    "https://www.linkedin.com/company/primebank",
-                    "https://www.instagram.com/primebank_uk"
+                    "https://www.facebook.com/primeconnect",
+                    "https://www.twitter.com/primeconnect_uk",
+                    "https://www.linkedin.com/company/primeconnect",
+                    "https://www.instagram.com/primeconnect_uk"
                   ],
                   "serviceArea": [
                     {
@@ -400,6 +403,9 @@ export default function RootLayout({
             
             {children}
             
+            {/* Toast notifications */}
+            <Toaster />
+            
             {/* Vercel Analytics */}
             <Analytics />
             <SpeedInsights />
@@ -407,5 +413,6 @@ export default function RootLayout({
     		</ConsentManagerProvider>
     	</body>
         </html>
+          </ClerkProvider>
       )
 }
