@@ -65,7 +65,7 @@ export function ChatWidget() {
             </div>
 
             <div className="mb-4">
-              <p className="text-slate-600 text-sm mb-4 leading-relaxed">Ready to grow your finances? Let's chat!</p>
+              <p className="text-slate-600 text-sm mb-4 leading-relaxed">Ready to grow your finances? Let&apos;s chat!</p>
             </div>
 
             <Button
