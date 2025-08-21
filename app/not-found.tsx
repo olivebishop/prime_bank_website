@@ -14,14 +14,14 @@ const NotFoundPage = () => {
           <div className="text-center">
             {/* 404 Number */}
             <div className="mb-8">
-              <h1 className="text-8xl md:text-9xl lg:text-[12rem] font-black text-black leading-none">
+              <h1 className="text-8xl md:text-9xl lg:text-[12rem] font-black text-blue-900 leading-none">
                 4<span className="text-gray-800">0</span>4
               </h1>
             </div>
 
             {/* Error Message */}
             <div className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-4 leading-tight">
+              <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4 leading-tight">
                 Page <span className="text-gray-800">Not Found</span>
               </h2>
               <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
@@ -31,7 +31,7 @@ const NotFoundPage = () => {
 
             {/* Go Home Button */}
             <Link href="/">
-              <button className="cursor-pointer px-8 py-4 rounded-xl font-bold text-lg bg-black text-white transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group mx-auto">
+              <button className="cursor-pointer px-8 py-4 rounded-xl font-bold text-lg bg-blue-900 text-white transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group mx-auto">
                 <Home className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Go Home</span>
               </button>

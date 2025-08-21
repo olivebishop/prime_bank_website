@@ -95,7 +95,7 @@ const InvestmentSolutionsPage = () => {
           {/* Why Invest with Primeo Bank */}
           <div className="mb-20">
             <h2 className="text-2xl md:text-3xl font-bold text-blue-900 text-center mb-12 leading-tight">
-              Why Invest with <span className="text-gray-800">Prime Bank?</span>
+              Why Invest with <span className="text-gray-800">Prime Bank Connect?</span>
             </h2>
             
             <div className="grid md:grid-cols-2 gap-6">

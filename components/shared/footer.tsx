@@ -17,7 +17,7 @@ const XLogo = ({ className }: { className?: string }) => (
 
 export default function PrimeBankFooter() {
   return (
-    <footer className="bg-blue-900 text-white relative overflow-hidden">
+    <footer className="bg-black text-white relative overflow-hidden">
       {/* Grain Overlay */}
       <GrainOverlay />
 
@@ -29,8 +29,7 @@ export default function PrimeBankFooter() {
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-baseline">
                 <span className="text-2xl font-black text-white tracking-tight">Prime</span>
-                <span className="text-xl font-black text-white ml-1">Bank</span>
-                <span className="text-lg font-bold text-blue-200 ml-2">Connect</span>
+                <span className="text-xl font-black text-white ml-1">Bank Connect</span>
               </div>
             </div>
 

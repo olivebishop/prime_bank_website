@@ -223,8 +223,8 @@ const Navbar = () => {
             >
               <div className="flex items-baseline">
                 <span className="text-xl sm:text-2xl font-black text-blue-900 tracking-tight whitespace-nowrap">Prime</span>
-                <span className="text-lg sm:text-xl font-black text-blue-900 ml-1 whitespace-nowrap">Bank</span>
-                <span className="text-sm sm:text-base font-bold text-blue-600 ml-2 whitespace-nowrap">Connect</span>
+                <span className="text-lg sm:text-xl font-black text-blue-900 ml-1 whitespace-nowrap">Bank Connect</span>
+              
               </div>
             </Link>
 
@@ -326,7 +326,7 @@ const Navbar = () => {
                 Login
               </Link>
               
-              <button className="hidden lg:flex bg-black text-white px-6 py-2.5 rounded-md text-sm xl:text-base font-medium hover:bg-gray-800 hover:scale-105 transition-all duration-200 items-center gap-2 whitespace-nowrap cursor-pointer">
+              <button className="hidden lg:flex bg-blue-900 text-white px-6 py-2.5 rounded-md text-sm xl:text-base font-medium hover:bg-blue-800 hover:scale-105 transition-all duration-200 items-center gap-2 whitespace-nowrap cursor-pointer">
                 <span>Open Account</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -552,14 +552,14 @@ const Navbar = () => {
               {/* Mobile CTA */}
               <div className="pt-6 border-t border-gray-200 space-y-3">
                 <Link
-                  href="/login"
+                  href="/sign-in"
                   className="block w-full py-3 text-left font-medium text-blue-900 hover:text-gray-700 transition-colors cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
                   Login
                 </Link>
                 <button
-                  className="w-full bg-black text-white py-3 rounded-md font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full bg-blue-900 text-white py-3 rounded-md font-medium hover:bg-blue-800 transition-colors flex items-center justify-center gap-2 cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>Open Account</span>

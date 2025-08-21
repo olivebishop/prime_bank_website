@@ -44,7 +44,7 @@ const WhyPrimeBank = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative bg-black backdrop-blur-sm rounded-2xl p-8 text-white border border-gray-800 hover:border-gray-700 transition-all duration-300 hover:transform hover:scale-105"
+              className="group relative bg-blue-900 backdrop-blur-sm rounded-2xl p-8 text-white border border-blue-700 hover:border-blue-600 transition-all duration-300 hover:transform hover:scale-105"
             >
               {/* Gradient Background Effect */}
               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300"></div>

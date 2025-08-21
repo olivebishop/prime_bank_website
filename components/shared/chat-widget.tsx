@@ -9,7 +9,7 @@ export function ChatWidget() {
 
   const handleWhatsAppRedirect = () => {
     const phoneNumber = "+254751281779"
-    const message = encodeURIComponent("Hello! I need assistance from Prime Bank support.")
+    const message = encodeURIComponent("Hello! I need assistance from Prime Bank Connect support.")
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`
     window.open(whatsappUrl, "_blank")
   }
