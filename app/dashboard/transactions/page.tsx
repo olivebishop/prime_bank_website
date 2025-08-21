@@ -57,7 +57,7 @@ export default async function TransactionsPage() {
     }
   }) : []
 
-  const currency = dbUser.account?.currency as 'GBP' | 'KES' || 'GBP'
+  const currency = dbUser.account?.currency as 'USD' | 'KES' || 'USD'
 
   return (
     <SidebarProvider

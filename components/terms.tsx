@@ -12,11 +12,11 @@ const TermsAndConditionsPage = () => {
         {/* Header */}
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-blue-900 mb-6 leading-tight">
               Terms & <span className="text-gray-800">Conditions</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Please read these terms carefully as they govern your use of Prime Connect services
+              Please read these terms carefully as they govern your use of Prime Bank Connect services
             </p>
             <div className="mt-6 text-sm text-gray-600">
               Last updated: January 2025
@@ -35,7 +35,7 @@ const TermsAndConditionsPage = () => {
                   >
                     <div className="flex items-start gap-6">
                       <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="w-7 h-7 text-black" />
+                        <IconComponent className="w-7 h-7 text-blue-900" />
                       </div>
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-white mb-4 leading-tight">
@@ -54,7 +54,7 @@ const TermsAndConditionsPage = () => {
 
           {/* Detailed Terms */}
           <div className="mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-black text-center mb-12 leading-tight">
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-900 text-center mb-12 leading-tight">
               Detailed <span className="text-gray-800">Terms</span>
             </h2>
             
@@ -63,7 +63,7 @@ const TermsAndConditionsPage = () => {
                 <div>
                   <h4 className="text-lg font-bold text-white mb-3">1. Eligibility</h4>
                   <p className="text-gray-300 leading-relaxed">
-                    To open an account with Prime Connect, you must be at least 18 years old, have legal capacity to enter into contracts, and provide required identification and documentation. Business accounts require additional verification.
+                    To open an account with Prime Bank Connect, you must be at least 18 years old, have legal capacity to enter into contracts, and provide required identification and documentation. Business accounts require additional verification.
                   </p>
                 </div>
 
@@ -84,7 +84,7 @@ const TermsAndConditionsPage = () => {
                 <div>
                   <h4 className="text-lg font-bold text-white mb-3">4. Liability and Disputes</h4>
                   <p className="text-gray-300 leading-relaxed">
-                    Prime Connect&apos;s liability is limited as set forth in these terms and applicable law. For transaction disputes, please contact us immediately. We will investigate and resolve disputes in accordance with banking regulations and our internal procedures.
+                    Prime Bank Connect&apos;s liability is limited as set forth in these terms and applicable law. For transaction disputes, please contact us immediately. We will investigate and resolve disputes in accordance with banking regulations and our internal procedures.
                   </p>
                 </div>
 
@@ -100,7 +100,7 @@ const TermsAndConditionsPage = () => {
 
           {/* Important Notices */}
           <div className="mb-20">
-            <h3 className="text-2xl md:text-3xl font-bold text-black mb-6 text-center leading-tight">
+            <h3 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 text-center leading-tight">
               Important <span className="text-gray-800">Notices</span>
             </h3>
             
@@ -126,7 +126,7 @@ const TermsAndConditionsPage = () => {
                 If you have any questions about these Terms and Conditions, please contact our customer service team.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="px-8 py-4 rounded-xl font-bold text-lg bg-white text-black transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group">
+                <button className="px-8 py-4 rounded-xl font-bold text-lg bg-white text-blue-900 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group">
                   <FileText className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                   <span>Contact Support</span>
                 </button>

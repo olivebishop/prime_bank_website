@@ -50,7 +50,7 @@ const ServicesSection = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 bg-[#ffffff]">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-blue-900 mb-6 leading-tight">
             Banking <span className="text-gray-800">Services</span>
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
@@ -61,8 +61,8 @@ const ServicesSection = () => {
 
         {/* Personal Banking Services */}
         <div className="mb-20">
-          <h3 className="text-2xl font-bold text-black mb-8 flex items-center gap-3">
-            <Smartphone className="w-6 h-6 text-black" />
+          <h3 className="text-2xl font-bold text-blue-900 mb-8 flex items-center gap-3">
+            <Smartphone className="w-6 h-6 text-blue-900" />
             Personal Banking
           </h3>
 
@@ -76,7 +76,7 @@ const ServicesSection = () => {
                   className="p-6 rounded-xl border border-gray-800 bg-black backdrop-blur-sm transition-all duration-300 group hover:scale-105 hover:border-gray-700"
                 >
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="w-6 h-6 text-black" />
+                    <IconComponent className="w-6 h-6 text-blue-900" />
                   </div>
 
                   <h4 className="text-lg font-bold text-white mb-2 leading-tight">{service.title}</h4>
@@ -98,8 +98,8 @@ const ServicesSection = () => {
 
         {/* Business Banking Services */}
         <div>
-          <h3 className="text-2xl font-bold text-black mb-8 flex items-center gap-3">
-            <Building2 className="w-6 h-6 text-black" />
+          <h3 className="text-2xl font-bold text-blue-900 mb-8 flex items-center gap-3">
+            <Building2 className="w-6 h-6 text-blue-900" />
             Business Banking
           </h3>
 
@@ -113,7 +113,7 @@ const ServicesSection = () => {
                   className="p-8 rounded-xl border border-gray-800 bg-black backdrop-blur-sm transition-all duration-300 group hover:scale-105 hover:border-gray-700"
                 >
                   <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="w-7 h-7 text-black" />
+                    <IconComponent className="w-7 h-7 text-blue-900" />
                   </div>
 
                   <h4 className="text-xl font-bold text-white mb-3 leading-tight">{service.title}</h4>

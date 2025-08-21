@@ -84,7 +84,7 @@ export function AdminDashboardContent({
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {formatCurrency(balance, 'GBP')}
+              {formatCurrency(balance, 'USD')}
             </div>
             <p className="text-xs text-muted-foreground">
               Across all accounts
@@ -152,7 +152,7 @@ export function AdminDashboardContent({
                           : 'text-red-600'
                       }`}>
                         {transaction.type === 'ADMIN_CREDIT' || transaction.type === 'DEPOSIT' ? '+' : '-'}
-                        {formatCurrency(parseFloat(transaction.amount.toString()), 'GBP')}
+                        {formatCurrency(parseFloat(transaction.amount.toString()), 'USD')}
                       </p>
                     </div>
                   </div>

@@ -64,7 +64,7 @@ const PrimeBankHero = () => {
                     <div className="w-16 h-0.5 bg-gradient-to-r from-gray-50 to-gray-200 mt-6 rounded-full animate-slideInLeft" />
                     <div className="space-y-6 max-w-2xl">
                       <p className="text-lg sm:text-xl lg:text-2xl text-gray-100 font-light leading-relaxed">
-                        Experience seamless UK banking with Prime Connect — secure, smart, and designed to grow your wealth.
+                        Experience seamless UK banking with Prime Bank Connect — secure, smart, and designed to grow your wealth.
                       </p>
                       <div className="flex items-center gap-3 text-gray-50 font-semibold animate-slideInLeft" style={{ animationDelay: '0.5s' }}>
                         <Shield className="w-5 h-5" />
@@ -76,7 +76,7 @@ const PrimeBankHero = () => {
 
                 {/* Action Section */}
                 <div className="flex flex-col sm:flex-row items-start gap-6 pt-4 animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
-                  <button className="group relative overflow-hidden bg-white hover:bg-gray-50 text-black font-bold px-10 py-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 hover:-translate-y-0.5 w-full sm:w-auto text-lg">
+                  <button className="group relative overflow-hidden bg-white hover:bg-gray-50 text-blue-900 font-bold px-10 py-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 hover:-translate-y-0.5 w-full sm:w-auto text-lg">
                     <span className="relative flex items-center justify-center gap-3">
                       Open Your Account Today
                       <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
@@ -104,9 +104,9 @@ const PrimeBankHero = () => {
                       {/* Card Content */}
                       <div className="relative z-10 h-full flex flex-col justify-between">
                         <div className="flex justify-between items-start">
-                          <div className="text-white font-medium text-base">Prime Connect</div>
+                          <div className="text-white font-medium text-base">Prime Bank Connect UK</div>
                           <div className="w-10 h-7 bg-gradient-to-r from-gray-50 to-gray-100 rounded flex items-center justify-center">
-                            <span className="text-sm font-bold text-black">£</span>
+                            <span className="text-sm font-bold text-blue-900">$</span>
                           </div>
                         </div>
 

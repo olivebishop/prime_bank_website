@@ -12,19 +12,19 @@ const CTASection = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center">
           {/* Main Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-blue-900 mb-6 leading-tight">
             Ready to <span className="text-gray-800">Get Started?</span>
           </h2>
           
           {/* Subheading */}
-          <p className="text-xl text-black max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="text-xl text-blue-800 max-w-3xl mx-auto mb-12 leading-relaxed">
             Join thousands of satisfied customers and experience the future of banking today.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {/* Primary CTA - Open Account */}
-            <button className="group relative bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl hover:scale-105">
+            <button className="group relative bg-white hover:bg-gray-100 text-blue-900 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl hover:scale-105">
               <span>Open Account Now</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               

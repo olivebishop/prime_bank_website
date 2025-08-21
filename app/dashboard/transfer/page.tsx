@@ -40,7 +40,7 @@ export default async function TransferPage() {
 
   const account = dbUser.account
   const balance = account ? parseFloat(account.balance.toString()) : 0
-  const currency = account?.currency as 'GBP' | 'KES' || 'GBP'
+  const currency = account?.currency as 'USD' | 'KES' || 'USD'
 
   return (
     <SidebarProvider

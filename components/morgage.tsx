@@ -14,7 +14,7 @@ const MortgagesPage = () => {
         {/* Header */}
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-blue-900 mb-6 leading-tight">
               Your Perfect <span className="text-gray-800">Mortgage</span> Awaits
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
@@ -40,7 +40,7 @@ const MortgagesPage = () => {
                     {/* Icon */}
                     <div className="mb-6">
                       <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="w-7 h-7 text-black" />
+                        <IconComponent className="w-7 h-7 text-blue-900" />
                       </div>
                       
                       <h3 className="text-xl font-bold text-white mb-2 leading-tight">
@@ -99,7 +99,7 @@ const MortgagesPage = () => {
                     )}
 
                     {/* CTA Button */}
-                    <button className="w-full px-6 py-3 rounded-xl font-bold text-lg bg-white text-black transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 group">
+                    <button className="w-full px-6 py-3 rounded-xl font-bold text-lg bg-white text-blue-900 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 group">
                       <span>Get Quote</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                     </button>
@@ -113,7 +113,7 @@ const MortgagesPage = () => {
           <div className="grid md:grid-cols-3 gap-6 mb-20">
             <div className="p-6 rounded-xl border border-gray-800 bg-black backdrop-blur-sm text-center transition-all duration-300 group hover:scale-105 hover:border-gray-700">
               <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Shield className="w-6 h-6 text-black" />
+                <Shield className="w-6 h-6 text-blue-900" />
               </div>
               <h4 className="text-lg font-bold text-white mb-2 leading-tight">FCA Regulated</h4>
               <p className="text-gray-300 text-sm leading-relaxed">Fully regulated and authorized by the Financial Conduct Authority</p>
@@ -121,7 +121,7 @@ const MortgagesPage = () => {
             
             <div className="p-6 rounded-xl border border-gray-800 bg-black backdrop-blur-sm text-center transition-all duration-300 group hover:scale-105 hover:border-gray-700">
               <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Clock className="w-6 h-6 text-black" />
+                <Clock className="w-6 h-6 text-blue-900" />
               </div>
               <h4 className="text-lg font-bold text-white mb-2 leading-tight">Quick Decisions</h4>
               <p className="text-gray-300 text-sm leading-relaxed">Get a mortgage decision in principle within 24 hours</p>
@@ -129,7 +129,7 @@ const MortgagesPage = () => {
             
             <div className="p-6 rounded-xl border border-gray-800 bg-black backdrop-blur-sm text-center transition-all duration-300 group hover:scale-105 hover:border-gray-700">
               <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Target className="w-6 h-6 text-black" />
+                <Target className="w-6 h-6 text-blue-900" />
               </div>
               <h4 className="text-lg font-bold text-white mb-2 leading-tight">Expert Advice</h4>
               <p className="text-gray-300 text-sm leading-relaxed">Free mortgage advice from qualified specialists</p>
@@ -147,7 +147,7 @@ const MortgagesPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 {/* Primary CTA Button */}
-                <button className="px-8 py-4 rounded-xl font-bold text-lg bg-white text-black transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group">
+                <button className="px-8 py-4 rounded-xl font-bold text-lg bg-white text-blue-900 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group">
                   <Home className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                   <span>Apply Now</span>
                 </button>

@@ -56,7 +56,7 @@ export const cookieCategories = [
     },
     {
       type: 'First-Party Cookies',
-      description: 'Set directly by Prime Bank on our website',
+      description: 'Set directly by Prime Bank Connect on our website',
       icon: Shield
     },
     {

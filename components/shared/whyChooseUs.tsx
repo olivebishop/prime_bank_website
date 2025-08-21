@@ -30,7 +30,7 @@ const WhyPrimeBank = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6 leading-tight">
             Why Choose Prime Bank?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -44,13 +44,13 @@ const WhyPrimeBank = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative bg-black backdrop-blur-sm rounded-2xl p-8 text-white border border-gray-800 hover:border-gray-700 transition-all duration-300 hover:transform hover:scale-105"
+              className="group relative bg-blue-900 backdrop-blur-sm rounded-2xl p-8 text-white border border-blue-700 hover:border-blue-600 transition-all duration-300 hover:transform hover:scale-105"
             >
               {/* Gradient Background Effect */}
               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300"></div>
               
               {/* Icon */}
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-white text-black mb-6 relative z-10">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-white text-blue-900 mb-6 relative z-10">
                 <feature.icon className="w-8 h-8" />
               </div>
               

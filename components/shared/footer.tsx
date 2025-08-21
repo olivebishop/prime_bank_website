@@ -29,7 +29,7 @@ export default function PrimeBankFooter() {
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-baseline">
                 <span className="text-2xl font-black text-white tracking-tight">Prime</span>
-                <span className="text-xl font-black text-white ml-1">Bank</span>
+                <span className="text-xl font-black text-white ml-1">Bank Connect</span>
               </div>
             </div>
 
@@ -157,7 +157,7 @@ export default function PrimeBankFooter() {
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex flex-col md:flex-row items-center gap-6 text-sm text-gray-400">
-              <span>© 2025 Prime Bank. All rights reserved.</span>
+              <span>© 2025 Prime Bank Connect. All rights reserved.</span>
               <div className="flex items-center gap-6">
                 <a href="privacy-policy" className="hover:text-white transition-colors">
                   Privacy Policy

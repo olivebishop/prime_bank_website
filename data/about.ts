@@ -43,7 +43,7 @@ export const companyStats = [
   },
   {
     id: 'assets',
-    value: '£12B+',
+    value: '$12B+',
     label: 'Assets Under Management',
     description: 'Managing wealth for our customers'
   },
@@ -94,7 +94,7 @@ export const milestones = [
   {
     id: 'founded',
     year: '2015',
-    title: 'Prime Bank Founded',
+    title: 'Prime Bank Connect Founded',
     description: 'Started with a vision to bridge African and British financial markets'
   },
   {

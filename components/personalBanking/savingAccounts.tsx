@@ -25,7 +25,7 @@ const SavingsAccountsPage = () => {
         {/* Header */}
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-blue-900 mb-6 leading-tight">
               Smart <span className="text-gray-800">Savings</span> Accounts
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
@@ -52,7 +52,7 @@ const SavingsAccountsPage = () => {
                     {/* Icon */}
                     <div className="mb-6">
                       <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="w-7 h-7 text-black" />
+                        <IconComponent className="w-7 h-7 text-blue-900" />
                       </div>
                       
                       <h3 className="text-xl font-bold text-white mb-2 leading-tight">
@@ -96,7 +96,7 @@ const SavingsAccountsPage = () => {
                     )}
 
                     {/* CTA Button */}
-                    <button className="w-full px-6 py-3 rounded-xl font-bold text-lg bg-white text-black transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 group">
+                    <button className="w-full px-6 py-3 rounded-xl font-bold text-lg bg-white text-blue-900 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 group">
                       <span>Open Account</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                     </button>
@@ -108,7 +108,7 @@ const SavingsAccountsPage = () => {
 
           {/* Why Choose Prime Savings */}
           <div className="mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-black text-center mb-12 leading-tight">
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-900 text-center mb-12 leading-tight">
               Why Choose <span className="text-gray-800">Prime Savings?</span>
             </h2>
             
@@ -119,7 +119,7 @@ const SavingsAccountsPage = () => {
                   <div key={benefit.id} className="p-6 rounded-xl border border-gray-800 bg-black backdrop-blur-sm transition-all duration-300 group hover:scale-105 hover:border-gray-700">
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="w-6 h-6 text-black" />
+                        <IconComponent className="w-6 h-6 text-blue-900" />
                       </div>
                       <div>
                         <h4 className="text-lg font-bold text-white mb-2 leading-tight">{benefit.title}</h4>
@@ -143,7 +143,7 @@ const SavingsAccountsPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 {/* Primary CTA Button */}
-                <button className="px-8 py-4 rounded-xl font-bold text-lg bg-white text-black transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group">
+                <button className="px-8 py-4 rounded-xl font-bold text-lg bg-white text-blue-900 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group">
                   <PiggyBank className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                   <span>Start Saving Today</span>
                 </button>

@@ -45,7 +45,7 @@ const ContactUsPage = () => {
               <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
               <span className="text-white text-sm font-medium">We&apos;re here to help</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-blue-900 mb-6 leading-tight">
               Get in <span className="text-gray-800">Touch</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
@@ -64,7 +64,7 @@ const ContactUsPage = () => {
                   className="p-6 rounded-xl border border-gray-800 bg-black backdrop-blur-sm transition-all duration-300 group hover:scale-105 hover:border-gray-700 text-center"
                 >
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="w-6 h-6 text-black" />
+                    <IconComponent className="w-6 h-6 text-blue-900" />
                   </div>
                   <h4 className="text-lg font-bold text-white mb-2 leading-tight">{info.title}</h4>
                   <p className="text-gray-300 text-sm font-medium mb-1">{info.primary}</p>
@@ -87,7 +87,7 @@ const ContactUsPage = () => {
                 {isSubmitted ? (
                   <div className="text-center py-12">
                     <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-7 h-7 text-black" />
+                      <CheckCircle className="w-7 h-7 text-blue-900" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2 leading-tight">Message Sent!</h3>
                     <p className="text-gray-300 text-sm leading-relaxed">Thank you for contacting us. We&apos;ll respond shortly.</p>
@@ -153,7 +153,7 @@ const ContactUsPage = () => {
 
                     <button
                       type="submit"
-                      className="w-full px-8 py-4 rounded-xl font-bold text-lg bg-white text-black transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group"
+                      className="w-full px-8 py-4 rounded-xl font-bold text-lg bg-white text-blue-900 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group"
                     >
                       <span>Send Message</span>
                       <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -169,7 +169,7 @@ const ContactUsPage = () => {
               <div className="p-6 rounded-xl border border-gray-800 bg-black backdrop-blur-sm">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-black" />
+                    <Clock className="w-6 h-6 text-blue-900" />
                   </div>
                   <h3 className="text-lg font-bold text-white leading-tight">Business Hours</h3>
                 </div>
@@ -195,7 +195,7 @@ const ContactUsPage = () => {
                         className="flex items-start gap-4 p-4 rounded-xl bg-gray-900 hover:bg-gray-800 transition-all duration-300 cursor-pointer group"
                       >
                         <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                          <IconComponent className="w-5 h-5 text-black" />
+                          <IconComponent className="w-5 h-5 text-blue-900" />
                         </div>
                         <div>
                           <h4 className="text-white font-bold text-sm mb-1 leading-tight">{channel.title}</h4>
@@ -219,7 +219,7 @@ const ContactUsPage = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
                   href="tel:+442071234567"
-                  className="inline-flex items-center gap-3 bg-white text-black font-bold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center gap-3 bg-white text-blue-900 font-bold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105"
                 >
                   <Phone className="w-4 h-4" />
                   Call Emergency Line

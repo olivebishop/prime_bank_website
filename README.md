@@ -9,7 +9,7 @@ A comprehensive banking web application built with Next.js, featuring user authe
 - **Real-world Account Numbers**: 
   - UK: PB + 8 digits (e.g., PB12345678)
   - Kenya: KB + 2-digit bank code + 10 digits (e.g., KB0112345678901)
-- **Multi-currency Support**: GBP for UK users, KES for Kenya users
+- **Multi-currency Support**: USD for US users, KES for Kenya users
 - **Transaction History**: View recent account activity
 - **Secure Authentication**: Powered by Clerk
 
@@ -99,7 +99,7 @@ The system generates realistic account numbers based on the user's location:
 - **Pattern**: PB + 8 digits
 - **Example**: PB12345678
 - **Sort Code**: 20-14-53 (Prime Bank UK)
-- **Currency**: GBP
+- **Currency**: USD
 
 ### Kenya Format
 - **Pattern**: KB + 01 (bank code) + 10 digits
