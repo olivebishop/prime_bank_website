@@ -167,7 +167,7 @@ const Navbar = () => {
             <div className="flex items-center gap-6">
               <span className="flex items-center gap-2">
                 <Shield className="w-4 h-4" />
-                FSCS Protected up to £85,000
+                FSCS Protected up to $85,000
               </span>
               <span className="hidden md:block">FCA Regulated • Established 1987</span>
             </div>

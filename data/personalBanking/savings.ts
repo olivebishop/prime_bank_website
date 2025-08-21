@@ -17,16 +17,16 @@ export const savingsProducts: SavingsProduct[] = [
     rate: "4.25% AER",
     description: "Perfect for emergency funds with unlimited access to your money. No minimum balance required and competitive interest rates.",
     icon: PiggyBank,
-    minBalance: "£0",
+    minBalance: "$0",
     access: "Unlimited"
   },
   {
     id: 'cash-isa',
     name: "Cash ISA",
     rate: "4.75% AER",
-    description: "Maximize your tax-free savings allowance with our market-leading ISA rates. Up to £20,000 annual allowance.",
+    description: "Maximize your tax-free savings allowance with our market-leading ISA rates. Up to $20,000 annual allowance.",
     icon: Shield,
-    minBalance: "£1",
+    minBalance: "$1",
     access: "Tax-free"
   },
   {
@@ -35,7 +35,7 @@ export const savingsProducts: SavingsProduct[] = [
     rate: "5.15% AER",
     description: "Lock in today's great rates for guaranteed returns. Choose terms from 12 to 60 months with no fees.",
     icon: TrendingUp,
-    minBalance: "£1,000",
+    minBalance: "$1,000",
     access: "12-60 months"
   },
   {
@@ -44,7 +44,7 @@ export const savingsProducts: SavingsProduct[] = [
     rate: "4.50% AER",
     description: "Enhanced rates for substantial balances with dedicated relationship management and exclusive opportunities.",
     icon: Target,
-    minBalance: "£25,000",
+    minBalance: "$25,000",
     access: "Limited"
   }
 ];
@@ -53,7 +53,7 @@ export const savingsBenefits = [
       id: 'protected', 
       icon: Shield, 
       title: 'FSCS Protected', 
-      description: 'Your deposits are protected up to £85,000 under the Financial Services Compensation Scheme' 
+      description: 'Your deposits are protected up to $85,000 under the Financial Services Compensation Scheme' 
     },
     { 
       id: 'no-fees', 

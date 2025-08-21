@@ -34,7 +34,7 @@ model Account {
   balance       Decimal @default(0.00) @db.Decimal(15, 2)
   accountNumber String  @unique
   accountType   String  @default("CURRENT") // CURRENT, SAVINGS
-  currency      String  @default("GBP") // GBP, KES
+  currency      String  @default("USD") // USD, KES
   country       String  @default("UK") // UK, KENYA
   status        AccountStatus @default(ACTIVE)
 

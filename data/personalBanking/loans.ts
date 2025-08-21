@@ -7,7 +7,7 @@ export const personalLoansData = [
     type: "Most Popular",
     icon: CreditCard,
     description: "Perfect for home improvements, debt consolidation, or major purchases with competitive rates and flexible terms.",
-    borrowAmount: "£1,000 - £25,000",
+    borrowAmount: "$1,000 - $25,000",
     apr: "from 3.9%",
     term: "1-5 years",
     features: [
@@ -27,7 +27,7 @@ export const personalLoansData = [
     type: "Best Rate",
     icon: TrendingUp,
     description: "Our lowest rates for existing customers with excellent credit history. Ideal for larger amounts and longer terms.",
-    borrowAmount: "£15,000 - £50,000",
+    borrowAmount: "$15,000 - $50,000",
     apr: "from 2.9%",
     term: "2-7 years",
     features: [

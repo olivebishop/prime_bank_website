@@ -33,7 +33,7 @@ async function createAdmin() {
         data: {
           userId: admin.id,
           accountNumber: 'PBADMIN001',
-          currency: 'GBP',
+          currency: 'USD',
           country: 'UK',
           balance: 0
         }

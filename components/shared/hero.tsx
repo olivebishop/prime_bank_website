@@ -106,7 +106,7 @@ const PrimeBankHero = () => {
                         <div className="flex justify-between items-start">
                           <div className="text-white font-medium text-base">Prime Bank Connect UK</div>
                           <div className="w-10 h-7 bg-gradient-to-r from-gray-50 to-gray-100 rounded flex items-center justify-center">
-                            <span className="text-sm font-bold text-blue-900">£</span>
+                            <span className="text-sm font-bold text-blue-900">$</span>
                           </div>
                         </div>
 

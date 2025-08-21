@@ -20,7 +20,7 @@ const PersonalLoansPage = () => {
               Personal <span className="text-gray-800">Loans</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
-              Competitive rates for your personal projects. Borrow £1,000 to £50,000 with flexible terms and no hidden fees.
+              Competitive rates for your personal projects. Borrow $1,000 to $50,000 with flexible terms and no hidden fees.
             </p>
             
             {/* Key Info Bar */}
@@ -32,7 +32,7 @@ const PersonalLoansPage = () => {
               <div className="w-px h-8 bg-gray-700"></div>
               <div className="text-center">
                 <div className="text-sm text-gray-400">Borrow Amount</div>
-                <div className="text-lg font-bold text-white">£1,000 - £50,000</div>
+                <div className="text-lg font-bold text-white">$1,000 - $50,000</div>
               </div>
               <div className="w-px h-8 bg-gray-700"></div>
               <div className="text-center">
@@ -193,8 +193,8 @@ const PersonalLoansPage = () => {
               {/* Disclaimer */}
               <div className="mt-8 text-xs text-gray-400 max-w-3xl mx-auto">
                 <p className="mb-2">
-                  Representative example: Borrowing £10,000 over 36 months with a representative APR of 3.9%, 
-                  you would pay monthly instalments of £295.24 with a total amount payable of £10,628.64.
+                  Representative example: Borrowing $10,000 over 36 months with a representative APR of 3.9%, 
+                  you would pay monthly instalments of $295.24 with a total amount payable of $10,628.64.
                 </p>
                 <p>
                   The rate you are offered will depend on your individual circumstances. 

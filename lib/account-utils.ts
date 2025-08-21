@@ -37,8 +37,8 @@ export function validateAccountNumber(accountNumber: string, country: 'UK' | 'KE
   }
 }
 
-export function formatCurrency(amount: number, currency: 'GBP' | 'KES'): string {
-  const formatter = new Intl.NumberFormat(currency === 'GBP' ? 'en-GB' : 'en-KE', {
+export function formatCurrency(amount: number, currency: 'USD' | 'KES'): string {
+  const formatter = new Intl.NumberFormat(currency === 'USD' ? 'en-US' : 'en-KE', {
     style: 'currency',
     currency: currency,
     minimumFractionDigits: 2,

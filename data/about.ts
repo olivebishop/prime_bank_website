@@ -43,7 +43,7 @@ export const companyStats = [
   },
   {
     id: 'assets',
-    value: '£12B+',
+    value: '$12B+',
     label: 'Assets Under Management',
     description: 'Managing wealth for our customers'
   },

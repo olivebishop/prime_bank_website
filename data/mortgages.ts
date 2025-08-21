@@ -8,7 +8,7 @@ export const mortgageProducts = [
     icon: Home,
     rate: 'From 4.29%',
     minDeposit: '5%',
-    maxLoan: '£500k',
+    maxLoan: '$500k',
     features: [
       'Low deposit options from 5%',
       'First-time buyer exclusive rates',
@@ -29,7 +29,7 @@ export const mortgageProducts = [
     icon: Users,
     rate: 'From 3.99%',
     minDeposit: '10%',
-    maxLoan: '£1M',
+    maxLoan: '$1M',
     features: [
       'Competitive rates for movers',
       'Flexible term options',
@@ -50,7 +50,7 @@ export const mortgageProducts = [
     icon: RefreshCw,
     rate: 'From 3.79%',
     minDeposit: 'N/A',
-    maxLoan: '£2M',
+    maxLoan: '$2M',
     features: [
       'Market-leading remortgage rates',
       'Equity release options',
@@ -71,7 +71,7 @@ export const mortgageProducts = [
     icon: Building,
     rate: 'From 4.49%',
     minDeposit: '25%',
-    maxLoan: '£2M',
+    maxLoan: '$2M',
     features: [
       'Investor-focused rates',
       'Portfolio mortgage options',

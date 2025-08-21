@@ -184,7 +184,7 @@ export function UserManagement() {
                       <div className="font-semibold">
                         {formatCurrency(
                           parseFloat(user.account.balance), 
-                          user.account.currency as 'GBP' | 'KES'
+                          user.account.currency as 'USD' | 'KES'
                         )}
                       </div>
                     ) : (
@@ -272,7 +272,7 @@ export function UserManagement() {
                 Current balance: {selectedUser?.account ? 
                   formatCurrency(
                     parseFloat(selectedUser.account.balance), 
-                    selectedUser.account.currency as 'GBP' | 'KES'
+                    selectedUser.account.currency as 'USD' | 'KES'
                   ) : 'N/A'
                 }
               </p>

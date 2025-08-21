@@ -139,7 +139,7 @@ export function DashboardContent({ user, account, recentTransactions }: Dashboar
   }
 
   const balance = toNumber(account.balance)
-  const currency = (account.currency || 'GBP') as 'GBP' | 'KES'
+  const currency = (account.currency || 'USD') as 'USD' | 'KES'
   const sortCode = getSortCode((account.country || 'UK') as 'UK' | 'KENYA')
 
   return (
@@ -290,7 +290,7 @@ export function DashboardContent({ user, account, recentTransactions }: Dashboar
                   </Badge>
                 </div>
                 <p className="text-xs text-muted-foreground mt-1">
-                  {account.country || 'UK'} • {account.currency || 'GBP'}
+                  {account.country || 'US'} • {account.currency || 'USD'}
                 </p>
               </CardContent>
             </Card>
