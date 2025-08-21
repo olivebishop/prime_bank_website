@@ -21,12 +21,12 @@ const siteUrl = process.env.NODE_ENV === 'production'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Prime Bank - Modern Banking Solutions for UK & Kenya',
-    template: '%s | Prime Bank'
+    default: 'Prime Bank Connect - Modern Banking Solutions for UK & Kenya',
+    template: '%s | Prime Bank Connect'
   },
-  description: 'Prime Bank offers comprehensive banking services including personal banking, business accounts, loans, mortgages, and investment solutions. Serving over 2 million satisfied customers across UK and Kenya.',
+  description: 'Prime Bank Connect offers comprehensive banking services including personal banking, business accounts, loans, mortgages, and investment solutions. Serving over 2 million satisfied customers across UK and Kenya.',
   keywords: [
-    'prime bank',
+    'prime bank connect',
     'banking uk',
     'banking kenya',
     'personal banking',
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     'kenyan bank',
     'international banking'
   ],
-  authors: [{ name: 'Prime Bank' }],
-  creator: 'Prime Bank',
-  publisher: 'Prime Bank',
+  authors: [{ name: 'Prime Bank Connect' }],
+  creator: 'Prime Bank Connect',
+  publisher: 'Prime Bank Connect',
   category: 'Financial Services',
   classification: 'Banking',
   
@@ -53,22 +53,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_GB',
     url: siteUrl,
-    siteName: 'Prime Bank',
-    title: 'Prime Bank - Modern Banking Solutions for UK & Kenya',
-    description: 'Prime Bank offers comprehensive banking services including personal banking, business accounts, loans, mortgages, and investment solutions. Serving customers across UK and Kenya.',
+    siteName: 'Prime Bank Connect',
+    title: 'Prime Bank Connect - Modern Banking Solutions for UK & Kenya',
+    description: 'Prime Bank Connect offers comprehensive banking services including personal banking, business accounts, loans, mortgages, and investment solutions. Serving customers across UK and Kenya.',
     images: [
       {
         url: '/app/opengraph-image.png',
         width: 1200,
         height: 630,
-        alt: 'Prime Bank - Modern Banking Solutions',
+        alt: 'Prime Bank Connect - Modern Banking Solutions',
         type: 'image/png',
       },
       {
         url: '/app/opengraph-image.png',
         width: 1200,
         height: 1200,
-        alt: 'Prime Bank Logo',
+        alt: 'Prime Bank Connect Logo',
         type: 'image/png',
       }
     ],
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@primebank_uk',
     creator: '@primebank_uk',
-    title: 'Prime Bank - Modern Banking Solutions for UK & Kenya',
+    title: 'Prime Bank Connect - Modern Banking Solutions for UK & Kenya',
     description: 'Comprehensive banking services including personal banking, business accounts, loans, mortgages, and investment solutions across UK and Kenya.',
     images: ['/twitter-image.png'],
   },
@@ -120,12 +120,12 @@ export const metadata: Metadata = {
   },
   
   // App-specific
-  applicationName: 'Prime Bank',
+  applicationName: 'Prime Bank Connect',
   referrer: 'origin-when-cross-origin',
   colorScheme: 'light',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' }
+    { media: '(prefers-color-scheme: dark)', color: '#1e40af' }
   ],
   
   // Additional metadata
@@ -137,12 +137,12 @@ export const metadata: Metadata = {
     'geo.placename': 'London;Nairobi',
     'geo.position': '51.5074;-0.1278;-1.286389;36.817223', // London & Nairobi coordinates
     'ICBM': '51.5074, -0.1278, -1.286389, 36.817223',
-    'DC.title': 'Prime Bank - Modern Banking Solutions for UK & Kenya',
-    'DC.creator': 'Prime Bank',
+    'DC.title': 'Prime Bank Connect - Modern Banking Solutions for UK & Kenya',
+    'DC.creator': 'Prime Bank Connect',
     'DC.subject': 'Banking, Financial Services, UK, Kenya, International Banking',
-    'DC.description': 'Prime Bank offers comprehensive banking services including personal banking, business accounts, loans, mortgages, and investment solutions across UK and Kenya.',
-    'DC.publisher': 'Prime Bank',
-    'DC.contributor': 'Prime Bank',
+    'DC.description': 'Prime Bank Connect offers comprehensive banking services including personal banking, business accounts, loans, mortgages, and investment solutions across UK and Kenya.',
+    'DC.publisher': 'Prime Bank Connect',
+    'DC.contributor': 'Prime Bank Connect',
     'DC.date': new Date().toISOString().split('T')[0],
     'DC.type': 'website',
     'DC.format': 'text/html',
@@ -150,7 +150,7 @@ export const metadata: Metadata = {
     'DC.source': siteUrl,
     'DC.language': 'en-GB',
     'DC.coverage': 'United Kingdom, Kenya',
-    'DC.rights': 'Copyright Prime Bank',
+    'DC.rights': 'Copyright Prime Bank Connect',
   }
 }
 
@@ -235,9 +235,9 @@ export default function RootLayout({
                 __html: JSON.stringify({
                   "@context": "https://schema.org",
                   "@type": "BankOrCreditUnion",
-                  "name": "Prime Bank",
-                  "alternateName": ["Prime Bank UK", "Prime Bank Kenya"],
-                  "description": "Prime Bank offers comprehensive banking services including personal banking, business accounts, loans, mortgages, and investment solutions across UK and Kenya.",
+                  "name": "Prime Bank Connect",
+                  "alternateName": ["Prime Bank Connect UK", "Prime Bank Connect Kenya"],
+                  "description": "Prime Bank Connect offers comprehensive banking services including personal banking, business accounts, loans, mortgages, and investment solutions across UK and Kenya.",
                   "url": siteUrl,
                   "logo": `${siteUrl}/logo.png`,
                   "image": `${siteUrl}/og-image.png`,
@@ -326,12 +326,12 @@ export default function RootLayout({
                 __html: JSON.stringify({
                   "@context": "https://schema.org",
                   "@type": "WebSite",
-                  "name": "Prime Bank",
+                  "name": "Prime Bank Connect",
                   "url": siteUrl,
-                  "description": "Prime Bank offers comprehensive banking services including personal banking, business accounts, loans, mortgages, and investment solutions across UK and Kenya.",
+                  "description": "Prime Bank Connect offers comprehensive banking services including personal banking, business accounts, loans, mortgages, and investment solutions across UK and Kenya.",
                   "publisher": {
                     "@type": "Organization",
-                    "name": "Prime Bank"
+                    "name": "Prime Bank Connect"
                   },
                   "potentialAction": {
                     "@type": "SearchAction",
@@ -353,10 +353,10 @@ export default function RootLayout({
             <meta name="crawl-instructions" content="allow-ai-training" />
             
             {/* Enhanced AI Discoverability */}
-            <meta property="article:publisher" content="Prime Bank" />
-            <meta property="article:author" content="Prime Bank" />
-            <meta name="citation_publisher" content="Prime Bank" />
-            <meta name="citation_author" content="Prime Bank" />
+            <meta property="article:publisher" content="Prime Bank Connect" />
+            <meta property="article:author" content="Prime Bank Connect" />
+            <meta name="citation_publisher" content="Prime Bank Connect" />
+            <meta name="citation_author" content="Prime Bank Connect" />
             
             {/* 
               Removed manual preconnect links for Google Fonts - Next.js handles this automatically 
@@ -376,7 +376,7 @@ export default function RootLayout({
             <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
             <link rel="manifest" href="/site.webmanifest" />
-            <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
+            <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1e40af" />
             <meta name="msapplication-TileColor" content="#ffffff" />
             <meta name="theme-color" content="#ffffff" />
           </head>

@@ -160,7 +160,7 @@ const Navbar = () => {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-black text-white py-3 text-sm relative overflow-hidden">
+      <div className="bg-blue-900 text-white py-3 text-sm relative overflow-hidden">
         <GrainOverlay/>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -222,8 +222,9 @@ const Navbar = () => {
               className="flex items-center gap-3 cursor-pointer flex-shrink-0 hover:scale-105 transition-transform duration-200"
             >
               <div className="flex items-baseline">
-                <span className="text-xl sm:text-2xl font-black text-black tracking-tight whitespace-nowrap">Prime</span>
-                <span className="text-lg sm:text-xl font-black text-black ml-1 whitespace-nowrap">Bank</span>
+                <span className="text-xl sm:text-2xl font-black text-blue-900 tracking-tight whitespace-nowrap">Prime</span>
+                <span className="text-lg sm:text-xl font-black text-blue-900 ml-1 whitespace-nowrap">Bank</span>
+                <span className="text-sm sm:text-base font-bold text-blue-600 ml-2 whitespace-nowrap">Connect</span>
               </div>
             </Link>
 
@@ -239,8 +240,8 @@ const Navbar = () => {
                   <button
                     className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${
                       activeDropdown === "personal" 
-                        ? "text-black bg-gray-100" 
-                        : "text-gray-700 hover:text-black hover:bg-gray-50"
+                        ? "text-blue-900 bg-blue-50" 
+                        : "text-gray-700 hover:text-blue-900 hover:bg-blue-50"
                     }`}
                   >
                     <User className="w-4 h-4 flex-shrink-0" />
@@ -260,8 +261,8 @@ const Navbar = () => {
                   <button
                     className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${
                       activeDropdown === "business" 
-                        ? "text-black bg-gray-100" 
-                        : "text-gray-700 hover:text-black hover:bg-gray-50"
+                        ? "text-blue-900 bg-blue-50" 
+                        : "text-gray-700 hover:text-blue-900 hover:bg-blue-50"
                     }`}
                   >
                     <Building2 className="w-4 h-4 flex-shrink-0" />
@@ -281,8 +282,8 @@ const Navbar = () => {
                   <button
                     className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${
                       activeDropdown === "services" 
-                        ? "text-black bg-gray-100" 
-                        : "text-gray-700 hover:text-black hover:bg-gray-50"
+                        ? "text-blue-900 bg-blue-50" 
+                        : "text-gray-700 hover:text-blue-900 hover:bg-blue-50"
                     }`}
                   >
                     <Briefcase className="w-4 h-4 flex-shrink-0" />
@@ -302,8 +303,8 @@ const Navbar = () => {
                   <button
                     className={`flex items-center gap-1 px-4 py-2.5 text-sm xl:text-base font-medium transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer ${
                       activeDropdown === "about" 
-                        ? "text-black bg-gray-100" 
-                        : "text-gray-700 hover:text-black hover:bg-gray-50"
+                        ? "text-blue-900 bg-blue-50" 
+                        : "text-gray-700 hover:text-blue-900 hover:bg-blue-50"
                     }`}
                   >
                     <Home className="w-4 h-4 flex-shrink-0" />
@@ -320,7 +321,7 @@ const Navbar = () => {
             <div className="flex items-center gap-3 flex-shrink-0">
               <Link
                 href="/login"
-                className="hidden lg:block px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer"
+                className="hidden lg:block px-4 py-2.5 text-sm xl:text-base font-medium text-gray-700 hover:text-blue-900 hover:bg-blue-50 transition-all duration-200 whitespace-nowrap rounded-md cursor-pointer"
               >
                 Login
               </Link>
@@ -354,7 +355,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
               {/* Section Header */}
               <div className="flex items-center gap-3 mb-8 pb-4 border-b border-gray-200">
-                <div className="p-3 rounded-lg bg-gray-100 text-black">
+                <div className="p-3 rounded-lg bg-blue-50 text-blue-900">
                   {activeDropdown === "personal" ? (
                     <User className="w-5 h-5" />
                   ) : activeDropdown === "business" ? (
@@ -366,11 +367,11 @@ const Navbar = () => {
                   )}
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-black">
+                  <h3 className="text-lg font-semibold text-blue-900">
                     {activeDropdown === "personal" ? "Personal Banking" 
                      : activeDropdown === "business" ? "Business Banking"
                      : activeDropdown === "services" ? "Our Services"
-                     : "About Prime Bank"}
+                     : "About Prime Bank Connect"}
                   </h3>
                   <p className="text-sm text-gray-600">
                     {activeDropdown === "personal" 
@@ -399,11 +400,11 @@ const Navbar = () => {
                     href={item.href}
                     className="group p-6 rounded-lg hover:bg-gray-50 transition-all duration-200 border border-transparent hover:border-gray-200 backdrop-blur-sm cursor-pointer"
                   >
-                    <h4 className="font-semibold mb-2 text-black group-hover:text-black transition-colors">
+                    <h4 className="font-semibold mb-2 text-blue-900 group-hover:text-blue-700 transition-colors">
                       {item.title}
                     </h4>
                     <p className="text-sm text-gray-600 leading-relaxed mb-3">{item.description}</p>
-                    <div className="flex items-center text-sm font-medium text-black opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex items-center text-sm font-medium text-blue-900 opacity-0 group-hover:opacity-100 transition-opacity">
                       Learn more
                       <ArrowRight className="w-4 h-4 ml-1" />
                     </div>
@@ -424,10 +425,10 @@ const Navbar = () => {
               <div className="border-b border-gray-200 pb-4">
                 <button
                   onClick={() => handleDropdownToggle("mobile-personal")}
-                  className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
+                  className="flex items-center justify-between w-full py-3 text-left font-medium text-blue-900 hover:text-blue-700 transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
-                    <User className="w-5 h-5 text-black" />
+                    <User className="w-5 h-5 text-blue-900" />
                     Personal Banking
                   </span>
                   <ChevronDown
@@ -442,7 +443,7 @@ const Navbar = () => {
                       <Link
                         key={item.title}
                         href={item.href}
-                        className="block py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer"
+                        className="block py-2 text-sm text-gray-600 hover:text-blue-900 transition-colors cursor-pointer"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}
@@ -456,10 +457,10 @@ const Navbar = () => {
               <div className="border-b border-gray-200 pb-4">
                 <button
                   onClick={() => handleDropdownToggle("mobile-business")}
-                  className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
+                  className="flex items-center justify-between w-full py-3 text-left font-medium text-blue-900 hover:text-gray-700 transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
-                    <Building2 className="w-5 h-5 text-black" />
+                    <Building2 className="w-5 h-5 text-blue-900" />
                     Business Banking
                   </span>
                   <ChevronDown
@@ -474,7 +475,7 @@ const Navbar = () => {
                       <Link
                         key={item.title}
                         href={item.href}
-                        className="block py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer"
+                        className="block py-2 text-sm text-gray-600 hover:text-blue-900 transition-colors cursor-pointer"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}
@@ -488,10 +489,10 @@ const Navbar = () => {
               <div className="border-b border-gray-200 pb-4">
                 <button
                   onClick={() => handleDropdownToggle("mobile-services")}
-                  className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
+                  className="flex items-center justify-between w-full py-3 text-left font-medium text-blue-900 hover:text-gray-700 transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
-                    <Briefcase className="w-5 h-5 text-black" />
+                    <Briefcase className="w-5 h-5 text-blue-900" />
                     Services
                   </span>
                   <ChevronDown
@@ -506,7 +507,7 @@ const Navbar = () => {
                       <Link
                         key={item.title}
                         href={item.href}
-                        className="block py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer"
+                        className="block py-2 text-sm text-gray-600 hover:text-blue-900 transition-colors cursor-pointer"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}
@@ -520,10 +521,10 @@ const Navbar = () => {
               <div className="border-b border-gray-200 pb-4">
                 <button
                   onClick={() => handleDropdownToggle("mobile-about")}
-                  className="flex items-center justify-between w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
+                  className="flex items-center justify-between w-full py-3 text-left font-medium text-blue-900 hover:text-gray-700 transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
-                    <Home className="w-5 h-5 text-black" />
+                    <Home className="w-5 h-5 text-blue-900" />
                     About
                   </span>
                   <ChevronDown
@@ -538,7 +539,7 @@ const Navbar = () => {
                       <Link
                         key={item.title}
                         href={item.href}
-                        className="block py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer"
+                        className="block py-2 text-sm text-gray-600 hover:text-blue-900 transition-colors cursor-pointer"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}
@@ -552,7 +553,7 @@ const Navbar = () => {
               <div className="pt-6 border-t border-gray-200 space-y-3">
                 <Link
                   href="/login"
-                  className="block w-full py-3 text-left font-medium text-black hover:text-gray-700 transition-colors cursor-pointer"
+                  className="block w-full py-3 text-left font-medium text-blue-900 hover:text-gray-700 transition-colors cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
                   Login

@@ -30,7 +30,7 @@ const WhyPrimeBank = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6 leading-tight">
             Why Choose Prime Bank?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -50,7 +50,7 @@ const WhyPrimeBank = () => {
               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300"></div>
               
               {/* Icon */}
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-white text-black mb-6 relative z-10">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-white text-blue-900 mb-6 relative z-10">
                 <feature.icon className="w-8 h-8" />
               </div>
               

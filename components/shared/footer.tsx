@@ -17,7 +17,7 @@ const XLogo = ({ className }: { className?: string }) => (
 
 export default function PrimeBankFooter() {
   return (
-    <footer className="bg-black text-white relative overflow-hidden">
+    <footer className="bg-blue-900 text-white relative overflow-hidden">
       {/* Grain Overlay */}
       <GrainOverlay />
 
@@ -30,6 +30,7 @@ export default function PrimeBankFooter() {
               <div className="flex items-baseline">
                 <span className="text-2xl font-black text-white tracking-tight">Prime</span>
                 <span className="text-xl font-black text-white ml-1">Bank</span>
+                <span className="text-lg font-bold text-blue-200 ml-2">Connect</span>
               </div>
             </div>
 
@@ -157,7 +158,7 @@ export default function PrimeBankFooter() {
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex flex-col md:flex-row items-center gap-6 text-sm text-gray-400">
-              <span>© 2025 Prime Bank. All rights reserved.</span>
+              <span>© 2025 Prime Bank Connect. All rights reserved.</span>
               <div className="flex items-center gap-6">
                 <a href="privacy-policy" className="hover:text-white transition-colors">
                   Privacy Policy

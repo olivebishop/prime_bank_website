@@ -14,7 +14,7 @@ const CookiePolicyPage = () => {
         {/* Header */}
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-blue-900 mb-6 leading-tight">
               Cookie <span className="text-gray-800">Policy</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
@@ -30,7 +30,7 @@ const CookiePolicyPage = () => {
             <div className="p-8 rounded-xl border border-gray-800 bg-black backdrop-blur-sm">
               <div className="flex items-start gap-6">
                 <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Cookie className="w-7 h-7 text-black" />
+                  <Cookie className="w-7 h-7 text-blue-900" />
                 </div>
                 <div>
                   <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
@@ -49,7 +49,7 @@ const CookiePolicyPage = () => {
 
           {/* Cookie Categories */}
           <div className="mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-black text-center mb-12 leading-tight">
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-900 text-center mb-12 leading-tight">
               Cookie <span className="text-gray-800">Categories</span>
             </h2>
             
@@ -71,7 +71,7 @@ const CookiePolicyPage = () => {
                     <div className="mb-6">
                       <div className="flex items-center justify-between mb-4">
                         <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                          <IconComponent className="w-7 h-7 text-black" />
+                          <IconComponent className="w-7 h-7 text-blue-900" />
                         </div>
                         <div className={`px-3 py-1 rounded-full text-xs font-bold ${
                           category.canDisable 
@@ -115,7 +115,7 @@ const CookiePolicyPage = () => {
 
           {/* Cookie Types */}
           <div className="mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-black text-center mb-12 leading-tight">
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-900 text-center mb-12 leading-tight">
               Types of <span className="text-gray-800">Cookies</span>
             </h2>
             
@@ -126,7 +126,7 @@ const CookiePolicyPage = () => {
                   <div key={index} className="p-6 rounded-xl border border-gray-800 bg-black backdrop-blur-sm transition-all duration-300 group hover:scale-[1.02] hover:border-gray-700">
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="w-6 h-6 text-black" />
+                        <IconComponent className="w-6 h-6 text-blue-900" />
                       </div>
                       <div>
                         <h4 className="text-lg font-bold text-white mb-2 leading-tight">{cookieType.type}</h4>
@@ -141,7 +141,7 @@ const CookiePolicyPage = () => {
 
           {/* Managing Cookies */}
           <div className="mb-20">
-            <h3 className="text-2xl md:text-3xl font-bold text-black mb-6 text-center leading-tight">
+            <h3 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 text-center leading-tight">
               Managing Your <span className="text-gray-800">Cookies</span>
             </h3>
             

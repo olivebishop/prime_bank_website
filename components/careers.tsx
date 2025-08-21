@@ -65,7 +65,7 @@ const CareersPage = () => {
         {/* Header */}
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-blue-900 mb-6 leading-tight">
               Build Your <span className="text-gray-800">Career</span> With Us
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
@@ -77,7 +77,7 @@ const CareersPage = () => {
           <div className="mb-20">
             <div className="p-12 rounded-xl border border-gray-800 bg-black backdrop-blur-sm text-center">
               <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <Briefcase className="w-10 h-10 text-black" />
+                <Briefcase className="w-10 h-10 text-blue-900" />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
                 Wek&apos;re Not Hiring <span className="text-gray-300">Right Now</span>
@@ -86,7 +86,7 @@ const CareersPage = () => {
                 While we donk&apos;t have any open positions at the moment, wek&apos;re always interested in connecting with talented individuals who share our vision for the future of banking.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center cursor-pointer">
-                <button className="px-8 py-4 cursor-pointer rounded-xl font-bold text-lg bg-white text-black transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group">
+                <button className="px-8 py-4 cursor-pointer rounded-xl font-bold text-lg bg-white text-blue-900 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group">
                   <Mail className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                   <span>Join Our Talent Pool</span>
                 </button>
@@ -97,7 +97,7 @@ const CareersPage = () => {
 
           {/* Why Work With Us */}
           <div className="mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-black text-center mb-12 leading-tight">
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-900 text-center mb-12 leading-tight">
               Why Work <span className="text-gray-800">With Prime Bank?</span>
             </h2>
             
@@ -111,7 +111,7 @@ const CareersPage = () => {
                   >
                     <div className="mb-6">
                       <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="w-7 h-7 text-black" />
+                        <IconComponent className="w-7 h-7 text-blue-900" />
                       </div>
                       <h3 className="text-xl font-bold text-white mb-3 leading-tight">
                         {benefit.title}
@@ -128,7 +128,7 @@ const CareersPage = () => {
 
           {/* Our Values */}
           <div className="mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-black text-center mb-12 leading-tight">
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-900 text-center mb-12 leading-tight">
               Our <span className="text-gray-800">Values</span>
             </h2>
             
@@ -149,7 +149,7 @@ const CareersPage = () => {
 
           {/* Locations */}
           <div className="mb-20">
-            <h3 className="text-2xl md:text-3xl font-bold text-black mb-6 text-center leading-tight">
+            <h3 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 text-center leading-tight">
               Where We <span className="text-gray-800">Work</span>
             </h3>
             
@@ -160,7 +160,7 @@ const CareersPage = () => {
                   <div key={index} className="p-6 rounded-xl border border-gray-800 bg-black backdrop-blur-sm transition-all duration-300 group hover:scale-[1.02] hover:border-gray-700">
                     <div className="text-center">
                       <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="w-6 h-6 text-black" />
+                        <IconComponent className="w-6 h-6 text-blue-900" />
                       </div>
                       <h4 className="text-lg font-bold text-white mb-2 leading-tight">{location.city}</h4>
                       <p className="text-gray-300 text-sm leading-relaxed">{location.description}</p>

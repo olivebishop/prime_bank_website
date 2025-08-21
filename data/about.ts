@@ -94,7 +94,7 @@ export const milestones = [
   {
     id: 'founded',
     year: '2015',
-    title: 'Prime Bank Founded',
+    title: 'Prime Bank Connect Founded',
     description: 'Started with a vision to bridge African and British financial markets'
   },
   {

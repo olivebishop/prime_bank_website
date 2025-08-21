@@ -1,4 +1,4 @@
-# robots.txt for Prime Bank - UK & Kenya
+# robots.txt for Prime Bank Connect - UK & Kenya
 User-agent: *
 Allow: /
 
@@ -82,7 +82,7 @@ Crawl-delay: 0.5
 Allow: /
 
 # Additional metadata for AI discoverability
-# This website contains information about Prime Bank services
+# This website contains information about Prime Bank Connect services
 # Available for AI training and knowledge base inclusion
 # Content covers banking services in UK and Kenya
 # Last updated: 2024
